@@ -1,0 +1,1244 @@
+[{
+	"arm": [
+		{
+			"name": "04-101 MIND ALPHA",
+			"weight": 16960,
+			"en": 358
+		},
+		{
+			"name": "AA-J-123 BASHO",
+			"weight": 10480,
+			"en": 210
+		},
+		{
+			"name": "AA-J-123/RC JAILBREAK",
+			"weight": 8480,
+			"en": 210
+		},
+		{
+			"name": "AC-2000 TOOL ARM",
+			"weight": 11300,
+			"en": 216
+		},
+		{
+			"name": "AC-3000 WRECKER",
+			"weight": 14150,
+			"en": 220
+		},
+		{
+			"name": "AR-011 MELANDER",
+			"weight": 13650,
+			"en": 265
+		},
+		{
+			"name": "AR-012 MELANDER C3",
+			"weight": 12000,
+			"en": 232
+		},
+		{
+			"name": "AS-5000 SALAD",
+			"weight": 20940,
+			"en": 324
+		},
+		{
+			"name": "DF-AR-08 TIAN-QIANG",
+			"weight": 20020,
+			"en": 295
+		},
+		{
+			"name": "DF-AR-09 TIAN-LAO",
+			"weight": 26740,
+			"en": 266
+		},
+		{
+			"name": "EL-PA-00 ALBA",
+			"weight": 9810,
+			"en": 315
+		},
+		{
+			"name": "EL-TA-10 FIRMEZA",
+			"weight": 11220,
+			"en": 270
+		},
+		{
+			"name": "IA-C01A: EPHEMERA",
+			"weight": 12700,
+			"en": 312
+		},
+		{
+			"name": "IB-C03A: HAL 826",
+			"weight": 14160,
+			"en": 300
+		},
+		{
+			"name": "NACHTREIHER/46E",
+			"weight": 11420,
+			"en": 290
+		},
+		{
+			"name": "VE-46A",
+			"weight": 22210,
+			"en": 380
+		},
+		{
+			"name": "VP-46D",
+			"weight": 10990,
+			"en": 248
+		},
+		{
+			"name": "VP-46S",
+			"weight": 14020,
+			"en": 278
+		}
+	],
+	"core": [
+		{
+			"name": "07-061 MIND ALPHA",
+			"weight": 16510,
+			"en": 364
+		},
+		{
+			"name": "AC-J-120 BASHO",
+			"weight": 16100,
+			"en": 300
+		},
+		{
+			"name": "AC-J-120/RC JAILBRAEK",
+			"weight": 12350,
+			"en": 300
+		},
+		{
+			"name": "BD-011 MELANDER",
+			"weight": 15800,
+			"en": 304
+		},
+		{
+			"name": "BD-012 MELANDER C3",
+			"weight": 14050,
+			"en": 322
+		},
+		{
+			"name": "CC-2000 ORBITER",
+			"weight": 12650,
+			"en": 267
+		},
+		{
+			"name": "CC-3000 WRECKER",
+			"weight": 19000,
+			"en": 310
+		},
+		{
+			"name": "CS-5000 MAIN DISH",
+			"weight": 23600,
+			"en": 413
+		},
+		{
+			"name": "DF-BD-08 TIAN-QIANG",
+			"weight": 20650,
+			"en": 388
+		},
+		{
+			"name": "EL-PC-00 ALBA",
+			"weight": 12000,
+			"en": 315
+		},
+		{
+			"name": "EL-TC-10 FIRMEZA",
+			"weight": 10890,
+			"en": 351
+		},
+		{
+			"name": "IA-C01C: EPHEMERA",
+			"weight": 13200,
+			"en": 412
+		},
+		{
+			"name": "IB-C03C: HAL 826",
+			"weight": 18520,
+			"en": 366
+		},
+		{
+			"name": "NACHTREIHER/40E",
+			"weight": 9820,
+			"en": 330
+		},
+		{
+			"name": "VE-40A",
+			"weight": 21100,
+			"en": 432
+		},
+		{
+			"name": "VP-40S",
+			"weight": 15030,
+			"en": 337
+		}
+	],
+	"head": [
+		{
+			"name": "AH-J-124 BASHO",
+			"weight": 4600,
+			"en": 95
+		},
+		{
+			"name": "AH-J-124/RC JAILBREAK",
+			"weight": 4250,
+			"en": 95
+		},
+		{
+			"name": "HD-011 MELANDER",
+			"weight": 3160,
+			"en": 135
+		},
+		{
+			"name": "HD-033M VERRILL",
+			"weight": 3830,
+			"en": 240
+		},
+		{
+			"name": "HD-012 MELANDER C3",
+			"weight": 3300,
+			"en": 165
+		},
+		{
+			"name": "DF-HD-08 TIAN-QIANG",
+			"weight": 1230,
+			"en": 88
+		},
+		{
+			"name": "VP-44S",
+			"weight": 3080,
+			"en": 148
+		},
+		{
+			"name": "VP-44D",
+			"weight": 3260,
+			"en": 177
+		},
+		{
+			"name": "NACHTREIHER/44E",
+			"weight": 2320,
+			"en": 210
+		},
+		{
+			"name": "KASUAR/44Z",
+			"weight": 2590,
+			"en": 254
+		},
+		{
+			"name": "VE-44A",
+			"weight": 3640,
+			"en": 182
+		},
+		{
+			"name": "VE-44B",
+			"weight": 4320,
+			"en": 265
+		},
+		{
+			"name": "HC-2000 FINDER EYE",
+			"weight": 2670,
+			"en": 125
+		},
+		{
+			"name": "HC-2000/BC SHADE EYE",
+			"weight": 3090,
+			"en": 163
+		},
+		{
+			"name": "HC-3000 WRECKER",
+			"weight": 3800,
+			"en": 102
+		},
+		{
+			"name": "HS-5000 APPETIZER",
+			"weight": 3000,
+			"en": 103
+		},
+		{
+			"name": "EL-TH-10 FIRMEZA",
+			"weight": 2570,
+			"en": 134
+		},
+		{
+			"name": "EL-PH-00 ALBA",
+			"weight": 2800,
+			"en": 205
+		},
+		{
+			"name": "20-081 MIND ALPHA",
+			"weight": 3350,
+			"en": 142
+		},
+		{
+			"name": "20-082 MIND BETA",
+			"weight": 3460,
+			"en": 128
+		},
+		{
+			"name": "IA-C01H: EPHEMERA",
+			"weight": 4330,
+			"en": 233
+		},
+		{
+			"name": "IB-C03H: HAL 826",
+			"weight": 3760,
+			"en": 215
+		}
+	],
+	"reg": [
+		{
+			"name": "EL-TL-10 FIRMEZA",
+			"weight": 11200,
+			"en": 378
+		},
+		{
+			"name": "EL-PL-00 ALBA",
+			"weight": 13150,
+			"en": 360
+		},
+		{
+			"name": "NACHTREIHER/42E",
+			"weight": 14030,
+			"en": 462
+		},
+		{
+			"name": "IA-C01L:EPHEMERA",
+			"weight": 15200,
+			"en": 398
+		},
+		{
+			"name": "2C-2000 CRAWLER",
+			"weight": 16300,
+			"en": 280
+		},
+		{
+			"name": "LG-012 MELANDER C3",
+			"weight": 17210,
+			"en": 355
+		},
+		{
+			"name": "VP-422",
+			"weight": 17900,
+			"en": 387
+		},
+		{
+			"name": "AL-J-121/RC JAILBREAK",
+			"weight": 18560,
+			"en": 300
+		},
+		{
+			"name": "LG-011 MELANDER",
+			"weight": 18700,
+			"en": 365
+		},
+		{
+			"name": "KASUAR/42Z",
+			"weight": 17560,
+			"en": 388
+		},
+		{
+			"name": "AL-J-121 BASHO",
+			"weight": 20520,
+			"en": 300
+		},
+		{
+			"name": "IB-C03L:HAL 826",
+			"weight": 20890,
+			"en": 385
+		},
+		{
+			"name": "2C-3000 WRECKER",
+			"weight": 21680,
+			"en": 680
+		},
+		{
+			"name": "06-042 MIND BETA",
+			"weight": 21000,
+			"en": 426
+		},
+		{
+			"name": "06-041 MIND ALPHA",
+			"weight": 22110,
+			"en": 412
+		},
+		{
+			"name": "DF-LG-08 TIAN-QIANG",
+			"weight": 23600,
+			"en": 400
+		},
+		{
+			"name": "EL-TL-11 FORTALEZA",
+			"weight": 24650,
+			"en": 620
+		},
+		{
+			"name": "2S-5000 DESSERT",
+			"weight": 25880,
+			"en": 420
+		},
+		{
+			"name": "RC-2000 SPRING CHICKEN",
+			"weight": 25890,
+			"en": 402
+		},
+		{
+			"name": "VE-42A",
+			"weight": 28950,
+			"en": 465
+		},
+		{
+			"name": "VP-424",
+			"weight": 31600,
+			"en": 760
+		},
+		{
+			"name": "LG-033M VERRILL",
+			"weight": 36200,
+			"en": 675
+		},
+		{
+			"name": "VE-42B",
+			"weight": 46600,
+			"en": 824
+		},
+		{
+			"name": "LG-022T BORNEMISSZA",
+			"weight": 49800,
+			"en": 455
+		}
+	],
+	"generator": [
+		{
+			"name": "AG-J-098 JOSO",
+			"weight": 3420,
+			"en": 2600
+		},
+		{
+			"name": "VE-20A",
+			"weight": 3590,
+			"en": 3120
+		},
+		{
+			"name": "VP-20S",
+			"weight": 3800,
+			"en": 3200
+		},
+		{
+			"name": "DF-GN-02 LING-TAI",
+			"weight": 3860,
+			"en": 2340
+		},
+		{
+			"name": "IA-C01G: AORTA",
+			"weight": 4330,
+			"en": 3500
+		},
+		{
+			"name": "AG-E-013 YABA",
+			"weight": 5080,
+			"en": 3000
+		},
+		{
+			"name": "VP-20C",
+			"weight": 5320,
+			"en": 3670
+		},
+		{
+			"name": "VE-20B",
+			"weight": 5860,
+			"en": 2890
+		},
+		{
+			"name": "DF-GN-06 MING-TANG",
+			"weight": 6320,
+			"en": 3160
+		},
+		{
+			"name": "AG-T-005 HOKUSHI",
+			"weight": 7080,
+			"en": 3810
+		},
+		{
+			"name": "IB-C03G: NGI 000",
+			"weight": 8950,
+			"en": 4340
+		},
+		{
+			"name": "DF-GN-08 SAN-TAI",
+			"weight": 10060,
+			"en": 3210
+		},
+		{
+			"name": "VE-20C",
+			"weight": 10130,
+			"en": 4090
+		},
+		{
+			"name": "VP-20D",
+			"weight": 11030,
+			"en": 4430
+		}
+	],
+	"fcs": [
+		{
+			"name": "FCS-G1/P01",
+			"weight": 80,
+			"en": 198
+		},
+		{
+			"name": "FCS-G2/P05",
+			"weight": 100,
+			"en": 232
+		},
+		{
+			"name": "FCS-G2/P10SLT",
+			"weight": 120,
+			"en": 209
+		},
+		{
+			"name": "FCS-G2/P12SML",
+			"weight": 130,
+			"en": 278
+		},
+		{
+			"name": "FC-006 ABBOT",
+			"weight": 90,
+			"en": 266
+		},
+		{
+			"name": "FC-008 TALBOT",
+			"weight": 140,
+			"en": 312
+		},
+		{
+			"name": "VE-21A",
+			"weight": 85,
+			"en": 364
+		},
+		{
+			"name": "VE-21B",
+			"weight": 160,
+			"en": 388
+		},
+		{
+			"name": "IA-C01F: OCELLUS",
+			"weight": 130,
+			"en": 292
+		},
+		{
+			"name": "IB-C03F: WLT 001",
+			"weight": 150,
+			"en": 486
+		}
+	],
+	"booster": [
+		{
+			"name": "AB-J-137 KIKAKU",
+			"weight": 1820,
+			"en": 266
+		},
+		{
+			"name": "BST-G2/P04",
+			"weight": 1710,
+			"en": 250
+		},
+		{
+			"name": "BST-G1/P10",
+			"weight": 1300,
+			"en": 130
+		},
+		{
+			"name": "BST-G2/P06SPD",
+			"weight": 1420,
+			"en": 390
+		},
+		{
+			"name": "ALULA/21E",
+			"weight": 1900,
+			"en": 410
+		},
+		{
+			"name": "FLUEGEL/21Z",
+			"weight": 1980,
+			"en": 282
+		},
+		{
+			"name": "BUERZEL/21D",
+			"weight": 2240,
+			"en": 480
+		},
+		{
+			"name": "BC-0600 12345",
+			"weight": 1360,
+			"en": 180
+		},
+		{
+			"name": "BC-0400 MULE",
+			"weight": 970,
+			"en": 200
+		},
+		{
+			"name": "BC-0200 GRIDWALKER",
+			"weight": 2010,
+			"en": 244
+		},
+		{
+			"name": "IA-C01B: GILLS",
+			"weight": 1590,
+			"en": 400
+		},
+		{
+			"name": "IB-C03B: NGI 001",
+			"weight": 1930,
+			"en": 342
+		}
+	],
+	"option": [
+		{
+			"name": "Assult Armor"
+		},
+		{
+			"name": "Pulse Armor"
+		},
+		{
+			"name": "Pulse Protection"
+		},
+		{
+			"name": "Terminal Armor"
+		}
+	],
+	"hand-weapon": [
+		{
+			"name": "MA-E-211 SAMPU",
+			"weight": 960,
+			"en": 62,
+			"right": true
+		},
+		{
+			"name": "VP-66EG",
+			"weight": 980,
+			"en": 247,
+			"right": true
+		},
+		{
+			"name": "EL-PW-00 VIENTO",
+			"weight": 1180,
+			"en": 215,
+			"right": true
+		},
+		{
+			"name": "HG-003 COQUILLETT",
+			"weight": 1200,
+			"en": 122,
+			"right": true
+		},
+		{
+			"name": "VP-67LD",
+			"weight": 1350,
+			"en": 150,
+			"right": false
+		},
+		{
+			"name": "WR-0777 SWEET SIXTEEN",
+			"weight": 1640,
+			"en": 268,
+			"right": true
+		},
+		{
+			"name": "HG-004 DUCKETT",
+			"weight": 1650,
+			"en": 158,
+			"right": true
+		},
+		{
+			"name": "VP-67EB",
+			"weight": 1720,
+			"en": 198,
+			"right": false
+		},
+		{
+			"name": "HI-32:BU-TT/A",
+			"weight": 1800,
+			"en": 213,
+			"right": false
+		},
+		{
+			"name": "IRIDIUM",
+			"weight": 2020,
+			"en": 290,
+			"right": true
+		},
+		{
+			"name": "IB-C03W2:WLT 101",
+			"weight": 2030,
+			"en": 642,
+			"right": false
+		},
+		{
+			"name": "HI-16:GU-Q1",
+			"weight": 2110,
+			"en": 368,
+			"right": true
+		},
+		{
+			"name": "IA-C01W2:MOONLIGHT",
+			"weight": 2200,
+			"en": 544,
+			"right": false
+		},
+		{
+			"name": "IA-C01W7:ML-REDSHIFT",
+			"weight": 2200,
+			"en": 544,
+			"right": false
+		},
+		{
+			"name": "44-143 HMMR",
+			"weight": 2410,
+			"en": 311,
+			"right": false
+		},
+		{
+			"name": "MG-014 LUDLOW",
+			"weight": 2450,
+			"en": 82,
+			"right": true
+		},
+		{
+			"name": "MA-T-223 KYORIKU",
+			"weight": 2600,
+			"en": 52,
+			"right": true
+		},
+		{
+			"name": "HI-18:GU-A2",
+			"weight": 2650,
+			"en": 446,
+			"right": true
+		},
+		{
+			"name": "Vvc-770LB",
+			"weight": 2060,
+			"en": 245,
+			"right": false
+		},
+		{
+			"name": "VP-66LH",
+			"weight": 2800,
+			"en": 395,
+			"right": true
+		},
+		{
+			"name": "MA-E-210 ETSUJIN",
+			"weight": 2810,
+			"en": 98,
+			"right": true
+		},
+		{
+			"name": "WUERGER/66E",
+			"weight": 2880,
+			"en": 440,
+			"right": true
+		},
+		{
+			"name": "MA-T-222 KYORAI",
+			"weight": 2890,
+			"en": 60,
+			"right": true
+		},
+		{
+			"name": "LITTLE GEM",
+			"weight": 3100,
+			"en": 192,
+			"right": true
+		},
+		{
+			"name": "WS-1200 THERAPIST",
+			"weight": 3180,
+			"en": 82,
+			"right": true
+		},
+		{
+			"name": "HML-G2/P19MLT-04",
+			"weight": 3250,
+			"en": 165,
+			"right": true
+		},
+		{
+			"name": "Vvc-774LS",
+			"weight": 3260,
+			"en": 328,
+			"right": false
+		},
+		{
+			"name": "DF-MG-02 CHANG-CHEN",
+			"weight": 3280,
+			"en": 143,
+			"right": true
+		},
+		{
+			"name": "Vvc-760PR",
+			"weight": 3330,
+			"en": 490,
+			"right": true
+		},
+		{
+			"name": "VP-66LS",
+			"weight": 3540,
+			"en": 510,
+			"right": true
+		},
+		{
+			"name": "RF-024 TURNER",
+			"weight": 3560,
+			"en": 102,
+			"right": true
+		},
+		{
+			"name": "VP-66LR",
+			"weight": 3560,
+			"en": 480,
+			"right": true
+		},
+		{
+			"name": "MA-J-201 RANSETSU-AR",
+			"weight": 3620,
+			"en": 132,
+			"right": true
+		},
+		{
+			"name": "SG-026 HALDEMAN",
+			"weight": 3660,
+			"en": 185,
+			"right": true
+		},
+		{
+			"name": "DF-ET-09 TAI-YANG-SHOU",
+			"weight": 3790,
+			"en": 160,
+			"right": false
+		},
+		{
+			"name": "RF-025 SCUDDER",
+			"weight": 3830,
+			"en": 153,
+			"right": true
+		},
+		{
+			"name": "IA-C01W1:NEBULA",
+			"weight": 3890,
+			"en": 609,
+			"right": true
+		},
+		{
+			"name": "IA-C01W6:NB-REDSHIFT",
+			"weight": 4040,
+			"en": 667,
+			"right": true
+		},
+		{
+			"name": "LR-036 CURTIS",
+			"weight": 4150,
+			"en": 289,
+			"right": true
+		},
+		{
+			"name": "PB-033M ASHMEAD",
+			"weight": 4180,
+			"en": 225,
+			"right": false
+		},
+		{
+			"name": "MA-J-200 RANSETSU-RF",
+			"weight": 4210,
+			"en": 158,
+			"right": true
+		},
+		{
+			"name": "SG-027 ZIMMERMAN",
+			"weight": 4400,
+			"en": 242,
+			"right": true
+		},
+		{
+			"name": "VE-67LLA",
+			"weight": 4520,
+			"en": 460,
+			"right": false
+		},
+		{
+			"name": "WS-5000 APERITIF",
+			"weight": 4600,
+			"en": 165,
+			"right": true
+		},
+		{
+			"name": "HML-G3/P08SPL-06",
+			"weight": 4630,
+			"en": 180,
+			"right": true
+		},
+		{
+			"name": "MAJESTIC",
+			"weight": 4660,
+			"en": 178,
+			"right": true
+		},
+		{
+			"name": "LR-037 HARRIS",
+			"weight": 4840,
+			"en": 441,
+			"right": true
+		},
+		{
+			"name": "VE-66LRA",
+			"weight": 4940,
+			"en": 532,
+			"right": true
+		},
+		{
+			"name": "WB-0010 DOUBLE TROUBLE",
+			"weight": 5090,
+			"en": 108,
+			"right": false
+		},
+		{
+			"name": "DF-GR-07 GOU-CHEN",
+			"weight": 5460,
+			"en": 385,
+			"right": true
+		},
+		{
+			"name": "DF-BA-06 XUAN-GE",
+			"weight": 5480,
+			"en": 240,
+			"right": true
+		},
+		{
+			"name": "DF-GA-08 HU-BEN",
+			"weight": 5800,
+			"en": 425,
+			"right": true
+		},
+		{
+			"name": "WB-0000 BAD COOK",
+			"weight": 6210,
+			"en": 403,
+			"right": true
+		},
+		{
+			"name": "DIZZY",
+			"weight": 6420,
+			"en": 455,
+			"right": true
+		},
+		{
+			"name": "44-141 JVLN ALPHA",
+			"weight": 7420,
+			"en": 299,
+			"right": true
+		},
+		{
+			"name": "VE-66LRB",
+			"weight": 7760,
+			"en": 604,
+			"right": true
+		},
+		{
+			"name": "IB-C03W1:WLT 011",
+			"weight": 9030,
+			"en": 850,
+			"right": true
+		},
+		{
+			"name": "44-142 KRSV",
+			"weight": 10120,
+			"en": 707,
+			"right": true
+		}
+	],
+	"sholder-weapon": [
+		{
+			"name": "パーツ",
+			"weight": "重量",
+			"en": "EN負荷",
+			"right": true
+		},
+		{
+			"name": "45-091 JVLN BETA",
+			"weight": 4250,
+			"en": 425,
+			"right": true
+		},
+		{
+			"name": "45-091 ORBT",
+			"weight": 2010,
+			"en": 446,
+			"right": true
+		},
+		{
+			"name": "BML-G1/P01VTC-04",
+			"weight": 2240,
+			"en": 258,
+			"right": true
+		},
+		{
+			"name": "BML-G1/P03VTC-08",
+			"weight": 3920,
+			"en": 380,
+			"right": true
+		},
+		{
+			"name": "BML-G1/P07VTC-12",
+			"weight": 5010,
+			"en": 525,
+			"right": true
+		},
+		{
+			"name": "BML-G1/P20MLT-04",
+			"weight": 2120,
+			"en": 154,
+			"right": true
+		},
+		{
+			"name": "BML-G1/P29CNT",
+			"weight": 6370,
+			"en": 150,
+			"right": true
+		},
+		{
+			"name": "BML-G1/P31DUO-02",
+			"weight": 1900,
+			"en": 182,
+			"right": true
+		},
+		{
+			"name": "BML-G1/P32DUO-03",
+			"weight": 3450,
+			"en": 262,
+			"right": true
+		},
+		{
+			"name": "BML-G2/P03MLT-06",
+			"weight": 3840,
+			"en": 241,
+			"right": true
+		},
+		{
+			"name": "BML-G2/P05MLT-10",
+			"weight": 5220,
+			"en": 320,
+			"right": true
+		},
+		{
+			"name": "BML-G2/P08DUO-03",
+			"weight": 4020,
+			"en": 332,
+			"right": true
+		},
+		{
+			"name": "BML-G2/P16SPL-08",
+			"weight": 2800,
+			"en": 228,
+			"right": true
+		},
+		{
+			"name": "BML-G2/P17SPL-16",
+			"weight": 5010,
+			"en": 510,
+			"right": true
+		},
+		{
+			"name": "BML-G2/P19SPL-12",
+			"weight": 3580,
+			"en": 325,
+			"right": true
+		},
+		{
+			"name": "BML-G3/P04ACT-01",
+			"weight": 2680,
+			"en": 213,
+			"right": true
+		},
+		{
+			"name": "BML-G3/P05ACT-02",
+			"weight": 4320,
+			"en": 424,
+			"right": true
+		},
+		{
+			"name": "BO-044 HUXLEY",
+			"weight": 2230,
+			"en": 435,
+			"right": true
+		},
+		{
+			"name": "EARSHOT",
+			"weight": 7230,
+			"en": 386,
+			"right": true
+		},
+		{
+			"name": "EL-PW-01 TRUENO",
+			"weight": 3100,
+			"en": 420,
+			"right": true
+		},
+		{
+			"name": "EULE/60D",
+			"weight": 2760,
+			"en": 382,
+			"right": true
+		},
+		{
+			"name": "FASAN/60E",
+			"weight": 6270,
+			"en": 882,
+			"right": true
+		},
+		{
+			"name": "IA-C01W3:AURORA",
+			"weight": 3330,
+			"en": 390,
+			"right": true
+		},
+		{
+			"name": "IB-C03W3:NGI 006",
+			"weight": 4200,
+			"en": 783,
+			"right": true
+		},
+		{
+			"name": "IB-C03W4:NGI 028",
+			"weight": 2170,
+			"en": 800,
+			"right": false
+		},
+		{
+			"name": "KRANICH/60Z",
+			"weight": 2100,
+			"en": 652,
+			"right": true
+		},
+		{
+			"name": "NONE",
+			"weight": 0,
+			"en": 0,
+			"right": true
+		},
+		{
+			"name": "SB-033M MORLEY",
+			"weight": 6580,
+			"en": 465,
+			"right": true
+		},
+		{
+			"name": "SI-24:SU-Q5",
+			"weight": 2010,
+			"en": 220,
+			"right": false
+		},
+		{
+			"name": "SI-27:SU-R8",
+			"weight": 3150,
+			"en": 323,
+			"right": false
+		},
+		{
+			"name": "SI-29:SU-TT/C",
+			"weight": 3380,
+			"en": 385,
+			"right": false
+		},
+		{
+			"name": "SONGBIRDS",
+			"weight": 5500,
+			"en": 285,
+			"right": true
+		},
+		{
+			"name": "VE-60LCA",
+			"weight": 14820,
+			"en": 1200,
+			"right": true
+		},
+		{
+			"name": "VE-60SNA",
+			"weight": 6150,
+			"en": 825,
+			"right": true
+		},
+		{
+			"name": "VE-61PSA",
+			"weight": 4100,
+			"en": 480,
+			"right": false
+		},
+		{
+			"name": "VP-60LCD",
+			"weight": 7620,
+			"en": 784,
+			"right": true
+		},
+		{
+			"name": "VP-60LCS",
+			"weight": 5190,
+			"en": 683,
+			"right": true
+		},
+		{
+			"name": "VP-60LT",
+			"weight": 2800,
+			"en": 560,
+			"right": true
+		},
+		{
+			"name": "VP-61PB",
+			"weight": 1920,
+			"en": 285,
+			"right": false
+		},
+		{
+			"name": "VP-61PS",
+			"weight": 2700,
+			"en": 310,
+			"right": false
+		},
+		{
+			"name": "Vvc-700LD",
+			"weight": 3800,
+			"en": 570,
+			"right": true
+		},
+		{
+			"name": "Vvc-703PM",
+			"weight": 2310,
+			"en": 210,
+			"right": true
+		},
+		{
+			"name": "Vvc-706PM",
+			"weight": 3900,
+			"en": 276,
+			"right": true
+		},
+		{
+			"name": "Vvc-70VPM",
+			"weight": 3760,
+			"en": 268,
+			"right": true
+		},
+		{
+			"name": "WR-0999 DELIVERY BOY",
+			"weight": 6890,
+			"en": 499,
+			"right": true
+		},
+		{
+			"name": "WS-5001 SOUP",
+			"weight": 5620,
+			"en": 680,
+			"right": true
+		}
+	]
+}]
