@@ -1,0 +1,122 @@
+[
+    {
+        "name": "EL-TL-10 FIRMEZA",
+        "weight": 11200,
+        "en": 378
+    },
+    {
+        "name": "EL-PL-00 ALBA",
+        "weight": 13150,
+        "en": 360
+    },
+    {
+        "name": "NACHTREIHER/42E",
+        "weight": 14030,
+        "en": 462
+    },
+    {
+        "name": "IA-C01L:EPHEMERA",
+        "weight": 15200,
+        "en": 398
+    },
+    {
+        "name": "2C-2000 CRAWLER",
+        "weight": 16300,
+        "en": 280
+    },
+    {
+        "name": "LG-012 MELANDER C3",
+        "weight": 17210,
+        "en": 355
+    },
+    {
+        "name": "VP-422",
+        "weight": 17900,
+        "en": 387
+    },
+    {
+        "name": "AL-J-121/RC JAILBREAK",
+        "weight": 18560,
+        "en": 300
+    },
+    {
+        "name": "LG-011 MELANDER",
+        "weight": 18700,
+        "en": 365
+    },
+    {
+        "name": "KASUAR/42Z",
+        "weight": 17560,
+        "en": 388
+    },
+    {
+        "name": "AL-J-121 BASHO",
+        "weight": 20520,
+        "en": 300
+    },
+    {
+        "name": "IB-C03L:HAL 826",
+        "weight": 20890,
+        "en": 385
+    },
+    {
+        "name": "2C-3000 WRECKER",
+        "weight": 21680,
+        "en": 680
+    },
+    {
+        "name": "06-042 MIND BETA",
+        "weight": 21000,
+        "en": 426
+    },
+    {
+        "name": "06-041 MIND ALPHA",
+        "weight": 22110,
+        "en": 412
+    },
+    {
+        "name": "DF-LG-08 TIAN-QIANG",
+        "weight": 23600,
+        "en": 400
+    },
+    {
+        "name": "EL-TL-11 FORTALEZA",
+        "weight": 24650,
+        "en": 620
+    },
+    {
+        "name": "2S-5000 DESSERT",
+        "weight": 25880,
+        "en": 420
+    },
+    {
+        "name": "RC-2000 SPRING CHICKEN",
+        "weight": 25890,
+        "en": 402
+    },
+    {
+        "name": "VE-42A",
+        "weight": 28950,
+        "en": 465
+    },
+    {
+        "name": "VP-424",
+        "weight": 31600,
+        "en": 760
+    },
+    {
+        "name": "LG-033M VERRILL",
+        "weight": 36200,
+        "en": 675
+    },
+    {
+        "name": "VE-42B",
+        "weight": 46600,
+        "en": 824
+    },
+    {
+        "name": "LG-022T BORNEMISSZA",
+        "weight": 49800,
+        "en": 455
+    }
+]

@@ -1,19 +1,19 @@
 <script>
-import games from "./parts.json";
-let tableData = games[0]["arm"]
-let columns = Object.keys(tableData[0]);
+import games from "./Parts/arm.json";
+console.log(games);
+let columns = Object.keys(games[0]);
 </script>
 <div>
 <table class="table">
     <thead>
       <tr>
-        {#each columns as column (column)}
+        {#each columns as column}
           <th>{column}</th>
         {/each}
       </tr>
     </thead>
     <tbody>
-      {#each tableData as row}
+      {#each games as row}
         <tr>
           {#each columns as column (column)}
             <td>{row[column]}</td>

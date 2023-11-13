@@ -1,0 +1,62 @@
+[
+    {
+        "name": "AB-J-137 KIKAKU",
+        "weight": 1820,
+        "en": 266
+    },
+    {
+        "name": "BST-G2/P04",
+        "weight": 1710,
+        "en": 250
+    },
+    {
+        "name": "BST-G1/P10",
+        "weight": 1300,
+        "en": 130
+    },
+    {
+        "name": "BST-G2/P06SPD",
+        "weight": 1420,
+        "en": 390
+    },
+    {
+        "name": "ALULA/21E",
+        "weight": 1900,
+        "en": 410
+    },
+    {
+        "name": "FLUEGEL/21Z",
+        "weight": 1980,
+        "en": 282
+    },
+    {
+        "name": "BUERZEL/21D",
+        "weight": 2240,
+        "en": 480
+    },
+    {
+        "name": "BC-0600 12345",
+        "weight": 1360,
+        "en": 180
+    },
+    {
+        "name": "BC-0400 MULE",
+        "weight": 970,
+        "en": 200
+    },
+    {
+        "name": "BC-0200 GRIDWALKER",
+        "weight": 2010,
+        "en": 244
+    },
+    {
+        "name": "IA-C01B: GILLS",
+        "weight": 1590,
+        "en": 400
+    },
+    {
+        "name": "IB-C03B: NGI 001",
+        "weight": 1930,
+        "en": 342
+    }
+]

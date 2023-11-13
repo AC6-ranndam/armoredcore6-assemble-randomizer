@@ -1,0 +1,72 @@
+[
+    {
+        "name": "AG-J-098 JOSO",
+        "weight": 3420,
+        "en": 2600
+    },
+    {
+        "name": "VE-20A",
+        "weight": 3590,
+        "en": 3120
+    },
+    {
+        "name": "VP-20S",
+        "weight": 3800,
+        "en": 3200
+    },
+    {
+        "name": "DF-GN-02 LING-TAI",
+        "weight": 3860,
+        "en": 2340
+    },
+    {
+        "name": "IA-C01G: AORTA",
+        "weight": 4330,
+        "en": 3500
+    },
+    {
+        "name": "AG-E-013 YABA",
+        "weight": 5080,
+        "en": 3000
+    },
+    {
+        "name": "VP-20C",
+        "weight": 5320,
+        "en": 3670
+    },
+    {
+        "name": "VE-20B",
+        "weight": 5860,
+        "en": 2890
+    },
+    {
+        "name": "DF-GN-06 MING-TANG",
+        "weight": 6320,
+        "en": 3160
+    },
+    {
+        "name": "AG-T-005 HOKUSHI",
+        "weight": 7080,
+        "en": 3810
+    },
+    {
+        "name": "IB-C03G: NGI 000",
+        "weight": 8950,
+        "en": 4340
+    },
+    {
+        "name": "DF-GN-08 SAN-TAI",
+        "weight": 10060,
+        "en": 3210
+    },
+    {
+        "name": "VE-20C",
+        "weight": 10130,
+        "en": 4090
+    },
+    {
+        "name": "VP-20D",
+        "weight": 11030,
+        "en": 4430
+    }
+]

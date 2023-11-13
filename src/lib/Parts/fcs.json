@@ -1,0 +1,52 @@
+[
+    {
+        "name": "FCS-G1/P01",
+        "weight": 80,
+        "en": 198
+    },
+    {
+        "name": "FCS-G2/P05",
+        "weight": 100,
+        "en": 232
+    },
+    {
+        "name": "FCS-G2/P10SLT",
+        "weight": 120,
+        "en": 209
+    },
+    {
+        "name": "FCS-G2/P12SML",
+        "weight": 130,
+        "en": 278
+    },
+    {
+        "name": "FC-006 ABBOT",
+        "weight": 90,
+        "en": 266
+    },
+    {
+        "name": "FC-008 TALBOT",
+        "weight": 140,
+        "en": 312
+    },
+    {
+        "name": "VE-21A",
+        "weight": 85,
+        "en": 364
+    },
+    {
+        "name": "VE-21B",
+        "weight": 160,
+        "en": 388
+    },
+    {
+        "name": "IA-C01F: OCELLUS",
+        "weight": 130,
+        "en": 292
+    },
+    {
+        "name": "IB-C03F: WLT 001",
+        "weight": 150,
+        "en": 486
+    }
+]
