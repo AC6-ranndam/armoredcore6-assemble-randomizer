@@ -1,6 +1,6 @@
 import frame from "$lib/parts/frame.json";
 import weapon from "$lib/parts/weapon.json";
-export function assemble(option, fixedParts) {
+export function assemble(option,fixedParts) {
     let en = 0;
     let weight = 0;
     let partsList = [];
