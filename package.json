@@ -18,9 +18,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"daisyui": "^3.9.4",
-		"pg": "^8.11.3",
-		"pg-hstore": "^2.3.4",
-		"sequelize": "^6.34.0"
+		"daisyui": "^3.9.4"
 	}
 }

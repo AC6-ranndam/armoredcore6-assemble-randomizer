@@ -3,7 +3,6 @@
   import frame from "$lib/parts/frame.json";
   import weapon from "$lib/parts/weapon.json";
   import { assemble } from "$lib/assemble.js";
-  import {writable} from "svelte/store";
   const type = ["種類", "パーツ", "固定"];
   const parameter = ["重量", "EN負荷"];
   const orderTranslation = {
@@ -55,37 +54,6 @@
     option[elementId] = event.srcElement.checked;
   }
 </script>
-
-<!--<div class="collapse bg-base-200">
-  <input type="checkbox" />
-  <div class="collapse-title text-xl font-medium">オプション</div>
-  <div class="collapse-content">
-    {#each Object.keys(optionTranslation) as options}
-      <div class="form-control">
-        <label class="label cursor-pointer">
-          <span class="label-text">{options}</span>
-          <input
-            type="checkbox"
-            id={optionTranslation[options]}
-            on:change={(event) =>
-              changeToggleOption(event, optionTranslation[options])}
-            class="toggle"
-          />
-        </label>
-      </div>
-    {/each}
-    <label class="label cursor-pointer">
-      <span class="label-text">ハンガー武器の割合</span>
-      <input
-        type="number"
-        class="input input-bordered w-full max-w-xs"
-        min="0"
-        max="100"
-        bind:value={option["hangerWeaponRate"]}
-      />
-    </label>
-  </div>
-</div>-->
 <div class="navbar bg-base-100">
   <div class="flex-none">
     <div class="drawer">
