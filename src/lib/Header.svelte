@@ -43,7 +43,7 @@
                     <!-- Sidebar content here -->
                     <li><a href="/">ホーム</a></li>
                     <li><a href="https://forms.gle/cJcMZ3sy6g31PYt88">フィードバック</a></li>
-                    <li><a href="https://github.com/y0329/armoredcore6-assemble-randomizer">ソースコード</a></li>
+                    <li><a href="https://github.com/y0329/armoredcore6-assemble-randomizer">ソースコード・ヘルプ</a></li>
                 </ul>
             </div>
         </div>
