@@ -49,9 +49,7 @@
         </div>
     </div>
     <div class="flex-1">
-        <a class="btn btn-ghost text-xl" href="/"
-            >アーマードコア6　賽投げシステム</a
-        >
+        <div class="text-xl font-bold px-1">アーマードコア6　賽投げシステム</div>
     </div>
     <div class="flex-none">
         <button
