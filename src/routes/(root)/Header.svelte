@@ -61,7 +61,7 @@
   </div>
   <div class="flex-none">
     <button
-      class="btn btn-success text-xl font-medium"
+      class="btn btn-success text-xl font-medium text-white"
       on:click={assembleCreate}>アセンブル生成</button
     >
     <button class="btn btn-square btn-ghost" onclick="optionModal.showModal()">
