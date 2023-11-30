@@ -45,7 +45,7 @@
           <!-- Sidebar content here -->
           <li><a href="/">ホーム</a></li>
           <li>
-            <a href="https://forms.gle/cJcMZ3sy6g31PYt88">フィードバック</a>
+            <a href="https://forms.gle/cJcMZ3sy6g31PYt88">お問い合わせ</a>
           </li>
           <li>
             <a href="https://github.com/y0329/armoredcore6-assemble-randomizer"
