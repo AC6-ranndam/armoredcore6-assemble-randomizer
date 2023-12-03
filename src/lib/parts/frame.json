@@ -433,6 +433,11 @@
     ],
     "booster": [
         {
+            "name": "NONE",
+            "weight": 0,
+            "en": 0
+        },
+        {
             "name": "AB-J-137 KIKAKU",
             "weight": 1820,
             "en": 266

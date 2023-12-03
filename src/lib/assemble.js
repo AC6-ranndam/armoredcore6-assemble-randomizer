@@ -6,16 +6,16 @@ export function assemble(option,fixedParts) {
     let partsList = [];
     let partsType = [];
     while (true) {
-        Object.keys(weapon).forEach(function (element) {//左腕→左肩→右腕→右肩
+        Object.keys(weapon).forEach(function (element) {//右腕→左腕→右肩→左肩
             let weaponParts = [];
             let choice = 0;
             let partsNames = [];
             if (option["hangerWeaponRate"] > 0) {
                 if (Math.floor(Math.random() * 101) <= option["hangerWeaponRate"] && element.includes("shoulder")) {
                     if (element.includes("double")) {
-                        weaponParts = Object.assign(weapon["double-hand-weapon"], weapon["double-shoulder-weapon"])
+                        weaponParts = weapon["double-hand-weapon"].concat(weapon["double-shoulder-weapon"])
                     } else {
-                        weaponParts = Object.assign(weapon["hand-weapon"], weapon["shoulder-weapon"])
+                        weaponParts = weapon["hand-weapon"].concat(weapon["shoulder-weapon"])
                     }
                 } else {
                     weaponParts = weapon[element];
@@ -28,7 +28,6 @@ export function assemble(option,fixedParts) {
                     return parts["name"] != "NONE";
                 });
             }
-            console.log(weaponParts);
             partsNames = weaponParts.map(item => item.name);
             if (Object.keys(fixedParts).length > 0 && typeof fixedParts[element] !== undefined && fixedParts.hasOwnProperty(element) == weapon.hasOwnProperty(element)) {
                 choice = partsNames.indexOf(fixedParts[element]);
