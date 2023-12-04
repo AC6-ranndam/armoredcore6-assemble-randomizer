@@ -3,7 +3,6 @@
   import weapon from "$lib/parts/weapon.json";
   import { fixedParts, result } from "$lib/store.js";
   const type = ["種類", "パーツ", "固定"];
-  console.log(weapon["double-hand-weapon"], frame);
   const orderTranslation = {
     右腕武装: weapon["double-hand-weapon"],
     左腕武装: weapon["hand-weapon"],
@@ -35,10 +34,12 @@
       document.getElementById(elementId).disabled = !event.srcElement.checked;
       delete $fixedParts[Object.values(orderTranslation)[elementId]];
     }
+    
   }
   function changeFixedParts(event, elementId) {
-    $fixedParts[Object.values(orderTranslation)[elementId]] =
+    $fixedParts[elementId] =
       event.srcElement.value;
+    console.log($fixedParts)
   }
 </script>
 

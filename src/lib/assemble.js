@@ -1,12 +1,16 @@
 import frame from "$lib/parts/frame.json";
 import weapon from "$lib/parts/weapon.json";
-export function assemble(option,fixedParts) {
+export function assemble(option, fixedParts) {
     let en = 0;
     let weight = 0;
     let partsList = [];
     let partsType = [];
+    const tankParts = ["LG-022T BORNEMISSZA", "VE-42B", "EL-TL-11 FORTALEZA"]
+    const partsTypeIndex = Object.keys(Object.assign(frame,weapon));
+    var fixedPartsIndex = 0;
     while (true) {
         Object.keys(weapon).forEach(function (element) {//右腕→左腕→右肩→左肩
+            fixedPartsIndex = Object.keys(weapon).indexOf(element);
             let weaponParts = [];
             let choice = 0;
             let partsNames = [];
@@ -29,8 +33,9 @@ export function assemble(option,fixedParts) {
                 });
             }
             partsNames = weaponParts.map(item => item.name);
-            if (Object.keys(fixedParts).length > 0 && typeof fixedParts[element] !== undefined && fixedParts.hasOwnProperty(element) == weapon.hasOwnProperty(element)) {
-                choice = partsNames.indexOf(fixedParts[element]);
+            if (Object.keys(fixedParts).length > 0 && fixedParts[fixedPartsIndex] != undefined) {
+                choice = partsNames.indexOf(fixedParts[fixedPartsIndex]);
+                console.log(choice)
             } else {
                 choice = Math.floor(Math.random() * weaponParts.length);
             }
@@ -40,9 +45,11 @@ export function assemble(option,fixedParts) {
             partsType.push(element);
         });
         Object.keys(frame).forEach(function (element) {
+            console.log(Object.keys(frame).indexOf(element))
+            fixedPartsIndex = Object.keys(frame).indexOf(element);
             let frameParts = [];
             let partsNames = [];
-            choice = 0;
+            let choice = 0;
             if (option["extendedFunctionNonePermit"] !== true) {
                 frameParts = frame[element].filter(function (parts) {
                     return parts["name"] != "NONE";
@@ -51,16 +58,22 @@ export function assemble(option,fixedParts) {
                 frameParts = frame[element];
             }
             partsNames = frameParts.map(item => item.name);
-            if (Object.keys(fixedParts).length > 0 && typeof fixedParts[element] !== undefined && fixedParts.hasOwnProperty(element) == frame.hasOwnProperty(element)) {
-                choice = partsNames.indexOf(fixedParts[element]);
+            if (Object.keys(fixedParts).length > 0 && fixedParts[fixedPartsIndex+4] != undefined) {
+                choice = partsNames.indexOf(fixedParts[fixedPartsIndex+4]);
             } else {
-                var choice = Math.floor(Math.random() * frameParts.length);
+                choice = Math.floor(Math.random() * frameParts.length);
             }
+
             partsList.push(frameParts[choice]);
             en += frameParts[choice]["en"];
             weight += frameParts[choice]["weight"];
             partsType.push(element);
         });
+        if (tankParts.some(element => element["name"] == partsList[7]["name"])) {
+            en -= partsList[8]["en"]
+            weight -= partsList[8]["weight"]
+            partsList[8] = frame["booster"][0]
+        }
         if (en - partsList[10]["en"] <= partsList[10]["en"] && (weight <= partsList[7]["Loading Limit"] || option["permitExcessWeight"])) {
             break;
         } else {
