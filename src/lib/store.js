@@ -1,7 +1,8 @@
 import { writable } from 'svelte/store';
 
 export let option = writable({
-    permitExcessWeight: true,
+    permitExcessLegWeight: false,
+    permitExcessArmWeight: false,
     extendedFunctionNonePermit: false,
     armedNonePermit: false,
     hangerWeaponRate: 0,
