@@ -1,11 +1,20 @@
 <script>
   import { assemble } from "$lib/assemble.js";
-  import { option, fixedParts, result } from "$lib/store.js";
+  import { option, fixedParts, result ,parameter} from "$lib/store.js";
   function assembleCreate() {
     result.set(assemble($option, $fixedParts));
+    let enSum = $result[1].reduce(function (sum, en) {
+        return sum + en;
+      }, 0);
+    enSum -= $result[1][10]
+    let weightSum = $result[2].reduce(function (sum, weight) {
+        return sum + weight;
+      }, 0);
+    $parameter = [enSum,$result[1][10],weightSum,$result[0][7]["Loading Limit"],($result[2][0]+$result[2][1]),$result[0][6]["Loading Limit"]]
   }
   const optionTranslation = {
-    積載超過を許可: "permitExcessWeight",
+    脚部積載超過を許可: "permitExcessLegWeight",
+    腕部積載超過を許可: "permitExcessArmWeight",
     コア拡張機能なしを許可: "extendedFunctionNonePermit",
     武装なしを許可: "armedNonePermit",
   };
