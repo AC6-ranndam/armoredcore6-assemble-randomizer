@@ -5,7 +5,8 @@
     result.set(assemble($option, $fixedParts));
   }
   const optionTranslation = {
-    積載超過を許可: "permitExcessWeight",
+    脚部積載超過を許可: "permitExcessLegWeight",
+    腕部積載超過を許可: "permitExcessArmWeight",
     コア拡張機能なしを許可: "extendedFunctionNonePermit",
     武装なしを許可: "armedNonePermit",
   };
