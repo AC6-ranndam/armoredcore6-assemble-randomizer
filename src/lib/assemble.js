@@ -35,7 +35,6 @@ export function assemble(option, fixedParts) {
             partsNames = weaponParts.map(item => item.name);
             if (Object.keys(fixedParts).length > 0 && fixedParts[fixedPartsIndex] != undefined) {
                 choice = partsNames.indexOf(fixedParts[fixedPartsIndex]);
-                console.log(choice)
             } else {
                 choice = Math.floor(Math.random() * weaponParts.length);
             }
@@ -45,7 +44,6 @@ export function assemble(option, fixedParts) {
             partsType.push(element);
         });
         Object.keys(frame).forEach(function (element) {
-            console.log(Object.keys(frame).indexOf(element))
             fixedPartsIndex = Object.keys(frame).indexOf(element);
             let frameParts = [];
             let partsNames = [];
