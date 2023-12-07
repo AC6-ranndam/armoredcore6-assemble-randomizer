@@ -30,9 +30,10 @@
   function hiddenswitch(event, elementId) {
     if (event.srcElement.checked) {
       document.getElementById(elementId).disabled = !event.srcElement.checked;
+      $fixedParts[elementId] =　document.querySelectorAll("select")[elementId].value;
     } else {
       document.getElementById(elementId).disabled = !event.srcElement.checked;
-      delete $fixedParts[Object.values(orderTranslation)[elementId]];
+      delete $fixedParts[elementId];
     }
     
   }
