@@ -26,7 +26,7 @@
     拡張機能: frame["option"],
   };
   const orders = Object.keys(orderTranslation);
-  const parameter = ["重量", "EN負荷"];
+  const parameter = ["EN負荷","重量"];
   function hiddenswitch(event, elementId) {
     if (event.srcElement.checked) {
       document.getElementById(elementId).disabled = !event.srcElement.checked;
@@ -39,7 +39,6 @@
   function changeFixedParts(event, elementId) {
     $fixedParts[elementId] =
       event.srcElement.value;
-    console.log($fixedParts)
   }
 </script>
 
