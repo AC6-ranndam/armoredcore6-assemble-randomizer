@@ -27,12 +27,8 @@
   };
   const orders = Object.keys(orderTranslation);
   const parameterType = [
-    "EN負荷",
-    "ジェネレータ出力",
-    "重量",
-    "脚部積載重量",
-    "両手武器総重量",
-    "腕部積載重量",
+    ["EN負荷", "総重量", "武器総重量"],
+    ["ジェネレータ出力", "脚部積載重量", "腕部積載重量"],
   ];
   let enSum = 0;
   let weightSum = 0;
@@ -80,14 +76,14 @@
       weightSum = $result[2].reduce(function (sum, weight) {
         return sum + weight;
       }, 0);
-      $parameter = [
-        enSum,
-        $result[1][10],
-        weightSum,
-        $result[0][7]["Loading Limit"],
-        $result[2][0] + $result[2][1],
-        $result[0][6]["Loading Limit"],
-      ];
+      $parameter = {
+        EN負荷: enSum,
+        ジェネレータ出力: $result[1][10],
+        総重量: weightSum,
+        脚部積載重量: $result[0][7]["Loading Limit"],
+        両手武器総重量: $result[2][0] + $result[2][1],
+        腕部積載重量: $result[0][6]["Loading Limit"],
+      };
     }
   }
 </script>
@@ -143,26 +139,32 @@
     {/each}
   </tbody>
 </table>
-<table class="table table-sm">
-  <thead>
-    <tr>
-      {#each parameterType as column}
-        <th>{column}</th>
+{#each parameterType as type}
+  <table class="table table-sm">
+    <thead>
+      <tr id="parameter">
+        {#each type as column}
+          <th>{column}</th>
+        {/each}
+      </tr>
+    </thead>
+
+    <tbody>
+      {#each type as column}
+        <td id="parameter">
+          {$parameter[column] != undefined ? $parameter[column] : "0"}
+        </td>
       {/each}
-    </tr>
-  </thead>
-  <tbody>
-    {#each $parameter as row}<!--パーツ固定の変更に従ってパラメーターを変えたい-->
-      <td>
-        {row}
-      </td>
-    {/each}
-  </tbody>
-</table>
+    </tbody>
+  </table>
+{/each}
 
 <style>
   th,
   td {
     text-align: center;
+  }
+  #parameter{
+    width: calc(100%/3);
   }
 </style>
