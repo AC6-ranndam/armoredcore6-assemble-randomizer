@@ -70,10 +70,12 @@ export function assemble(option, fixedParts) {
             weightList.push(frameParts[choice]["weight"]);
             partsType.push(element);
         });
-        if (tankParts.some(element => element["name"] == partsList[7]["name"])) {
+        if (tankParts.some(element => element == partsList[7]["name"])) {
+            console.log(partsList)
             enList[8] = 0
             weightList[8] = 0
             partsList[8] = frame["booster"][0]
+            console.log(partsList)
         }
         en = enList.reduce(function (sum, element) {
             return sum + element;
