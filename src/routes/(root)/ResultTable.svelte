@@ -26,25 +26,31 @@
     拡張機能: frame["option"],
   };
   const orders = Object.keys(orderTranslation);
-  const parameterType = ["EN負荷", "ジェネレータ出力", "重量", "脚部積載重量","両手武器総重量","腕部積載重量"];
+  const parameterType = [
+    "EN負荷",
+    "ジェネレータ出力",
+    "重量",
+    "脚部積載重量",
+    "両手武器総重量",
+    "腕部積載重量",
+  ];
   let enSum = 0;
   let weightSum = 0;
   function hiddenswitch(event, elementId) {
-    if ([6, 7].includes(elementId)) {
-      //脚部か腕部を固定した場合
-      $option[Object.keys($option)[[6, 7].indexOf(elementId)]] =
-        !$option[Object.keys($option)[[6, 7].indexOf(elementId)]]; //オプション自動指定
-    } else {
-      if (event.srcElement.checked) {
-        //それ以外かつ固定を有効にしたら
-        document.getElementById(elementId).disabled = !event.srcElement.checked;
-        $fixedParts[elementId] =
-          document.querySelectorAll("select")[elementId].value;
-      } else {
-        //そうでなければ
-        document.getElementById(elementId).disabled = !event.srcElement.checked;
-        delete $fixedParts[elementId];
+    if (event.srcElement.checked) {
+      if ([6, 7].includes(elementId)) {
+        //脚部か腕部を固定した場合
+        $option[Object.keys($option)[[6, 7].indexOf(elementId)]] =
+          !$option[Object.keys($option)[[6, 7].indexOf(elementId)]]; //オプション自動指定
       }
+      //それ以外かつ固定を有効にしたら
+      document.getElementById(elementId).disabled = !event.srcElement.checked;
+      $fixedParts[elementId] =
+        document.querySelectorAll("select")[elementId].value;
+    } else {
+      //そうでなければ
+      document.getElementById(elementId).disabled = !event.srcElement.checked;
+      delete $fixedParts[elementId];
     }
   }
   function changeFixedParts(event, elementId) {
@@ -74,7 +80,14 @@
       weightSum = $result[2].reduce(function (sum, weight) {
         return sum + weight;
       }, 0);
-      $parameter = [enSum,$result[1][10],weightSum,$result[0][7]["Loading Limit"],($result[2][0]+$result[2][1]),$result[0][6]["Loading Limit"]]
+      $parameter = [
+        enSum,
+        $result[1][10],
+        weightSum,
+        $result[0][7]["Loading Limit"],
+        $result[2][0] + $result[2][1],
+        $result[0][6]["Loading Limit"],
+      ];
     }
   }
 </script>
