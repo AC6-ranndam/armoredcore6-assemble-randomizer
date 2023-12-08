@@ -1,16 +1,23 @@
 <script>
   import { assemble } from "$lib/assemble.js";
-  import { option, fixedParts, result ,parameter} from "$lib/store.js";
+  import { option, fixedParts, result, parameter } from "$lib/store.js";
   function assembleCreate() {
     result.set(assemble($option, $fixedParts));
     let enSum = $result[1].reduce(function (sum, en) {
-        return sum + en;
-      }, 0);
-    enSum -= $result[1][10]
+      return sum + en;
+    }, 0);
+    enSum -= $result[1][10];
     let weightSum = $result[2].reduce(function (sum, weight) {
-        return sum + weight;
-      }, 0);
-    $parameter = [enSum,$result[1][10],weightSum,$result[0][7]["Loading Limit"],($result[2][0]+$result[2][1]),$result[0][6]["Loading Limit"]]
+      return sum + weight;
+    }, 0);
+    $parameter = {
+        "EN負荷": enSum,
+        "ジェネレータ出力": $result[1][10],
+        "総重量": weightSum,
+        "脚部積載重量": $result[0][7]["Loading Limit"],
+        "両手武器総重量": $result[2][0] + $result[2][1],
+        "腕部積載重量": $result[0][6]["Loading Limit"],
+      };
   }
   const optionTranslation = {
     脚部積載超過を許可: "permitExcessLegWeight",
