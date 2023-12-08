@@ -77,12 +77,12 @@
         return sum + weight;
       }, 0);
       $parameter = {
-        EN負荷: enSum,
-        ジェネレータ出力: $result[1][10],
-        総重量: weightSum,
-        脚部積載重量: $result[0][7]["Loading Limit"],
-        両手武器総重量: $result[2][0] + $result[2][1],
-        腕部積載重量: $result[0][6]["Loading Limit"],
+        "EN負荷": enSum,
+        "ジェネレータ出力": $result[1][10],
+        "総重量": weightSum,
+        "脚部積載重量": $result[0][7]["Loading Limit"],
+        "武器総重量": $result[2][0] + $result[2][1],
+        "腕部積載重量": $result[0][6]["Loading Limit"],
       };
     }
   }
