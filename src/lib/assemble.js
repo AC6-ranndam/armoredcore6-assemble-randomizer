@@ -20,9 +20,9 @@ export function assemble(option, fixedParts) {
             if (option["hangerWeaponRate"] > 0) {
                 if (Math.floor(Math.random() * 101) <= option["hangerWeaponRate"] && element.includes("shoulder")) {
                     if (element.includes("double")) {
-                        weaponParts = weapon["double-hand-weapon"].concat(weapon["double-shoulder-weapon"])
+                        weaponParts = weapon["double-hand-weapon"]
                     } else {
-                        weaponParts = weapon["hand-weapon"].concat(weapon["shoulder-weapon"])
+                        weaponParts = weapon["hand-weapon"]
                     }
                 } else {
                     weaponParts = weapon[element];
