@@ -83,7 +83,8 @@ export function assemble(option, fixedParts) {
         }, 0);
         legLoadingExcess = weight <= partsList[7]["Loading Limit"]
         armLoadingExcess = (weightList[0]+weightList[1]) <= partsList[6]["Loading Limit"]
-        if (en - partsList[10]["en"] <= partsList[10]["en"] && (legLoadingExcess || option["permitExcessLegWeight"]) && (armLoadingExcess || option["permitExcessArmWeight"])) {
+        console.log(partsList[10]["en"],partsList[5]["outputCorrection"],partsList[10]["en"]*(partsList[5]["outputCorrection"]/100))
+        if (en - partsList[10]["en"] <= partsList[10]["en"]*(partsList[5]["outputCorrection"]/100) && (legLoadingExcess || option["permitExcessLegWeight"]) && (armLoadingExcess || option["permitExcessArmWeight"])) {
             break;
         } else {
             enList = [];

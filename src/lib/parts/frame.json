@@ -115,82 +115,98 @@
         {
             "name": "07-061 MIND ALPHA",
             "weight": 16510,
-            "en": 364
+            "en": 364,
+            "outputCorrection": 112
         },
         {
             "name": "AC-J-120 BASHO",
             "weight": 16100,
-            "en": 300
+            "en": 300,
+            "outputCorrection": 83
         },
         {
             "name": "AC-J-120/RC JAILBRAEK",
             "weight": 12350,
-            "en": 300
+            "en": 300,
+            "outputCorrection": 83
         },
         {
             "name": "BD-011 MELANDER",
             "weight": 15800,
-            "en": 304
+            "en": 304,
+            "outputCorrection": 105
         },
         {
             "name": "BD-012 MELANDER C3",
             "weight": 14050,
-            "en": 322
+            "en": 322,
+            "outputCorrection": 102
         },
         {
             "name": "CC-2000 ORBITER",
             "weight": 12650,
-            "en": 267
+            "en": 267,
+            "outputCorrection": 103
         },
         {
             "name": "CC-3000 WRECKER",
             "weight": 19000,
-            "en": 310
+            "en": 310,
+            "outputCorrection": 96
         },
         {
             "name": "CS-5000 MAIN DISH",
             "weight": 23600,
-            "en": 413
+            "en": 413,
+            "outputCorrection": 97
         },
         {
             "name": "DF-BD-08 TIAN-QIANG",
             "weight": 20650,
-            "en": 388
+            "en": 388,
+            "outputCorrection": 114
         },
         {
             "name": "EL-PC-00 ALBA",
             "weight": 12000,
-            "en": 315
+            "en": 315,
+            "outputCorrection": 101
         },
         {
             "name": "EL-TC-10 FIRMEZA",
             "weight": 10890,
-            "en": 351
+            "en": 351,
+            "outputCorrection": 104
         },
         {
             "name": "IA-C01C: EPHEMERA",
             "weight": 13200,
-            "en": 412
+            "en": 412,
+            "outputCorrection": 126
         },
         {
             "name": "IB-C03C: HAL 826",
             "weight": 18520,
-            "en": 366
+            "en": 366,
+            "outputCorrection": 120
         },
         {
             "name": "NACHTREIHER/40E",
             "weight": 9820,
-            "en": 330
+            "en": 330,
+            "outputCorrection": 91
         },
         {
             "name": "VE-40A",
             "weight": 21100,
-            "en": 432
+            "en": 432,
+            "outputCorrection": 122
         },
         {
             "name": "VP-40S",
             "weight": 15030,
-            "en": 337
+            "en": 337,
+            "outputCorrection": 106
         }
     ],
     "arm": [
