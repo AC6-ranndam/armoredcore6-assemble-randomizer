@@ -35,7 +35,17 @@ export function assemble(option, fixedParts) {
             } else {
                 weaponParts = weaponTypeList[element];
             }
+            console.log(weaponParts)
             if (option["armedNonePermit"] !== true) {
+                for(let i = 0;i<weaponParts.length;i++){
+                    for(let j = 0;j<weaponParts[i].length;j++){
+                        if(weaponParts[i][j]["パーツ名"] == "NONE"){
+                            console.log(i,j)
+                            weaponParts[i].splice(j,"1")
+                        }
+                    }
+                }
+                console.log(weaponParts)
             }
             partsNames = weaponParts.map(item => item.name);
             if (Object.keys(fixedParts).length > 0 && fixedParts[fixedPartsIndex] != undefined) {
