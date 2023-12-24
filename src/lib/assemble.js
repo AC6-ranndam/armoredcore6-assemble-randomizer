@@ -1,5 +1,6 @@
 import frame from "$lib/parts/frame.json";
 import weapon from "$lib/parts/weapon.json";
+import parameter from "$lib/parts/parameter.json";
 export function assemble(option, fixedParts) {
     let enList = [];
     let weightList = [];
@@ -7,33 +8,34 @@ export function assemble(option, fixedParts) {
     let partsType = [];
     let en = 0;
     let weight = 0;
-    const tankParts = ["LG-022T BORNEMISSZA", "VE-42B", "EL-TL-11 FORTALEZA"];
+    const tankParts = parameter["フレーム"]["脚部"].filter(function (element) {
+        return element["脚部カテゴリ"] == "タンク";
+    });
     let armLoadingExcess = false;
     let legLoadingExcess = false;
     var fixedPartsIndex = 0;
     while (true) {
-        Object.keys(weapon).forEach(function (element) {//右腕→左腕→右肩→左肩
-            fixedPartsIndex = Object.keys(weapon).indexOf(element);
+        let weaponTypeList = { "rightArmUnit": Object.values(parameter["武器"]["腕部武装"]), "leftArmUnit": Object.values(parameter["武器"]["腕部武装"]).slice(1, 5), "rightBackUnit": Object.values(parameter["武器"]["背部武装"]), "leftBackUnit": Object.values(parameter["武器"]["背部武装"]).slice(1, 4) }
+        Object.keys(weaponTypeList).forEach(function (element) {//右腕→左腕→右肩→左肩
+            fixedPartsIndex = Object.keys(weaponTypeList).indexOf(element);
+            console.log(element);
             let weaponParts = [];
             let choice = 0;
             let partsNames = [];
             if (option["hangerWeaponRate"] > 0) {
-                if (Math.floor(Math.random() * 101) <= option["hangerWeaponRate"] && element.includes("shoulder")) {
-                    if (element.includes("double")) {
-                        weaponParts = weapon["double-hand-weapon"]
+                if (Math.floor(Math.random() * 101) <= option["hangerWeaponRate"] && element.includes("Back")) {
+                    if (element.includes("left")) {
+                        weaponParts = weaponTypeList["leftArmUnit"]
                     } else {
-                        weaponParts = weapon["hand-weapon"]
+                        weaponParts = weaponTypeList["rightArmUnit"]
                     }
                 } else {
-                    weaponParts = weapon[element];
+                    weaponParts = weaponTypeList[element];
                 }
             } else {
-                weaponParts = weapon[element];
+                weaponParts = weaponTypeList[element];
             }
             if (option["armedNonePermit"] !== true) {
-                weaponParts = weaponParts.filter(function (parts) {
-                    return parts["name"] != "NONE";
-                });
             }
             partsNames = weaponParts.map(item => item.name);
             if (Object.keys(fixedParts).length > 0 && fixedParts[fixedPartsIndex] != undefined) {
@@ -46,6 +48,7 @@ export function assemble(option, fixedParts) {
             weightList.push(weaponParts[choice]["weight"]);
             partsType.push(element);
         });
+        break
         Object.keys(frame).forEach(function (element) {
             fixedPartsIndex = Object.keys(frame).indexOf(element);
             let frameParts = [];
@@ -82,9 +85,9 @@ export function assemble(option, fixedParts) {
             return sum + element;
         }, 0);
         legLoadingExcess = weight <= partsList[7]["Loading Limit"]
-        armLoadingExcess = (weightList[0]+weightList[1]) <= partsList[6]["Loading Limit"]
-        console.log(partsList[10]["en"],partsList[5]["outputCorrection"],partsList[10]["en"]*(partsList[5]["outputCorrection"]/100))
-        if (en - partsList[10]["en"] <= partsList[10]["en"]*(partsList[5]["outputCorrection"]/100) && (legLoadingExcess || option["permitExcessLegWeight"]) && (armLoadingExcess || option["permitExcessArmWeight"])) {
+        armLoadingExcess = (weightList[0] + weightList[1]) <= partsList[6]["Loading Limit"]
+        console.log(partsList[10]["en"], partsList[5]["outputCorrection"], partsList[10]["en"] * (partsList[5]["outputCorrection"] / 100))
+        if (en - partsList[10]["en"] <= partsList[10]["en"] * (partsList[5]["outputCorrection"] / 100) && (legLoadingExcess || option["permitExcessLegWeight"]) && (armLoadingExcess || option["permitExcessArmWeight"])) {
             break;
         } else {
             enList = [];
@@ -95,5 +98,5 @@ export function assemble(option, fixedParts) {
             partsType = [];
         }
     }
-    return [partsList, enList, weightList, partsType,armLoadingExcess,legLoadingExcess];
+    return [partsList, enList, weightList, partsType, armLoadingExcess, legLoadingExcess];
 }
