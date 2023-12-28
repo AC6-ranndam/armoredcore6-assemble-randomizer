@@ -1,8 +1,13 @@
 <script>
   import frame from "$lib/parts/frame.json";
   import weapon from "$lib/parts/weapon.json";
+  import parameterList from "$lib/parts/parameter.json";
   import { option, fixedParts, result, parameter } from "$lib/store.js";
+  import { parameterFormation } from "$lib/parameterFormation.js";
   const type = ["種類", "パーツ", "固定"];
+  let x = []
+  console.log(Object.values(parameterList["武器"]["腕部武装"]).map(element => element));
+  
   const orderTranslation = {
     右腕武装: weapon["double-hand-weapon"],
     左腕武装: weapon["hand-weapon"],
@@ -30,32 +35,31 @@
     ["EN負荷", "総重量", "武器総重量"],
     ["ジェネレータ出力", "脚部積載重量", "腕部積載重量"],
   ];
-  let enSum = 0;
-  let weightSum = 0;
   function hiddenswitch(event, elementId) {
-    if (event.srcElement.checked) {
+    if (event.target.checked) {
       if ([6, 7].includes(elementId)) {
         //脚部か腕部を固定した場合
         $option[Object.keys($option)[[6, 7].indexOf(elementId)]] =
           !$option[Object.keys($option)[[6, 7].indexOf(elementId)]]; //オプション自動指定
       }
       //それ以外かつ固定を有効にしたら
-      document.getElementById(elementId).disabled = !event.srcElement.checked;
+      document.getElementById(elementId).disabled = !event.target.checked;
       $fixedParts[elementId] =
         document.querySelectorAll("select")[elementId].value;
     } else {
       //そうでなければ
-      document.getElementById(elementId).disabled = !event.srcElement.checked;
+      document.getElementById(elementId).disabled = !event.target.checked;
       delete $fixedParts[elementId];
     }
   }
   function changeFixedParts(event, elementId) {
-    $fixedParts[elementId] = event.srcElement.value;
+    $fixedParts[elementId] = event.target.value;
+    console.log(event.target.value);
     if ($result.length > 0) {
       if (elementId < 4) {
         //武器なら
         Object.values(weapon)[elementId].forEach((element) => {
-          if (element["name"] == event.srcElement.value) {
+          if (element["name"] == event.target.value) {
             $result[1][elementId] = element["en"];
             $result[2][elementId] = element["weight"];
           }
@@ -63,27 +67,17 @@
       } else {
         //フレームなら
         Object.values(frame)[elementId - 4].forEach((element) => {
-          if (element["name"] == event.srcElement.value) {
+          if (element["name"] == event.target.value) {
             $result[1][elementId] = element["en"];
             $result[2][elementId] = element["weight"];
           }
         });
       }
-      enSum = $result[1].reduce(function (sum, en) {
-        return sum + en;
-      }, 0);
-      enSum -= $result[1][10]; //ジェネレータ分を引く
-      weightSum = $result[2].reduce(function (sum, weight) {
-        return sum + weight;
-      }, 0);
-      $parameter = {
-        "EN負荷": enSum,
-        "ジェネレータ出力": $result[1][10]*($result[0][5]["outputCorrection"]/100),
-        "総重量": weightSum,
-        "脚部積載重量": $result[0][7]["Loading Limit"],
-        "武器総重量": $result[2][0] + $result[2][1],
-        "腕部積載重量": $result[0][6]["Loading Limit"],
-      };
+      $parameter = parameterFormation($result);
+    }else{
+      alert("まずアセンブルを生成してください")
+      delete $fixedParts[elementId];
+      console.log($fixedParts)
     }
   }
 </script>
