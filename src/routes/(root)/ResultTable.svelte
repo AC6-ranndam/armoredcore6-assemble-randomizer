@@ -2,33 +2,30 @@
   import frame from "$lib/parts/frame.json";
   import weapon from "$lib/parts/weapon.json";
   import parameterList from "$lib/parts/parameter.json";
-  import { option, fixedParts, result, parameter } from "$lib/store.js";
-  import { parameterFormation } from "$lib/parameterFormation.js";
+  import {
+    option,
+    fixedParts,
+    result,
+    parameter,
+    weaponFormationedParameter,
+  } from "$lib/store.js";
+  import { displayParameterFormation } from "$lib/displayParameterFormation.js";
+  import { weaponParameterFormation } from "$lib/weaponParameterFormation.js";
   const type = ["種類", "パーツ", "固定"];
-  let x = []
-  console.log(Object.values(parameterList["武器"]["腕部武装"]).map(element => element));
-  
+  $weaponFormationedParameter = weaponParameterFormation(parameterList);
   const orderTranslation = {
-    右腕武装: weapon["double-hand-weapon"],
-    左腕武装: weapon["hand-weapon"],
-    右肩武装: weapon["double-shoulder-weapon"].concat(
-      weapon["double-hand-weapon"].filter(function (parts) {
-        return parts["name"] != "NONE";
-      }),
-    ),
-    左肩武装: weapon["shoulder-weapon"].concat(
-      weapon["hand-weapon"].filter(function (parts) {
-        return parts["name"] != "NONE";
-      }),
-    ),
-    頭部: frame["head"],
-    コア: frame["core"],
-    腕部: frame["arm"],
-    脚部: frame["reg"],
-    ブースター: frame["booster"],
-    火器管制: frame["fcs"],
-    ジェネレータ: frame["generator"],
-    拡張機能: frame["option"],
+    右腕武装: $weaponFormationedParameter[0],
+    左腕武装: $weaponFormationedParameter[1],
+    右肩武装: $weaponFormationedParameter[2],
+    左肩武装: $weaponFormationedParameter[3],
+    頭部: parameterList["フレーム"]["頭部"],
+    コア: parameterList["フレーム"]["コア"],
+    腕部: parameterList["フレーム"]["腕部"],
+    脚部: parameterList["フレーム"]["脚部"],
+    ブースター: parameterList["内装"]["ブースター"],
+    火器管制: parameterList["内装"]["FCS"],
+    ジェネレータ: parameterList["内装"]["ジェネレータ"],
+    拡張機能: parameterList["拡張機能"],
   };
   const orders = Object.keys(orderTranslation);
   const parameterType = [
@@ -36,11 +33,13 @@
     ["ジェネレータ出力", "脚部積載重量", "腕部積載重量"],
   ];
   function hiddenswitch(event, elementId) {
+    console.log(event, elementId);
     if (event.target.checked) {
       if ([6, 7].includes(elementId)) {
         //脚部か腕部を固定した場合
         $option[Object.keys($option)[[6, 7].indexOf(elementId)]] =
           !$option[Object.keys($option)[[6, 7].indexOf(elementId)]]; //オプション自動指定
+        console.log($option);
       }
       //それ以外かつ固定を有効にしたら
       document.getElementById(elementId).disabled = !event.target.checked;
@@ -50,34 +49,49 @@
       //そうでなければ
       document.getElementById(elementId).disabled = !event.target.checked;
       delete $fixedParts[elementId];
+      $option;
     }
   }
   function changeFixedParts(event, elementId) {
     $fixedParts[elementId] = event.target.value;
-    console.log(event.target.value);
     if ($result.length > 0) {
       if (elementId < 4) {
         //武器なら
-        Object.values(weapon)[elementId].forEach((element) => {
-          if (element["name"] == event.target.value) {
-            $result[1][elementId] = element["en"];
-            $result[2][elementId] = element["weight"];
+        Object.values(
+          Object.assign(
+            Object.values(parameterList["武器"]).flat()[0],
+            Object.values(parameterList["武器"]).flat()[1]
+          )
+        ).forEach((category) => {
+          category.forEach((parts) => {
+            if (parts["パーツ名"] == event.target.value) {
+              $result[1][elementId] = parts["EN負荷"];
+              $result[2][elementId] = parts["重量"];
+            }
+          });
+        });
+      } else if (elementId < 8) {
+        //フレームなら
+        Object.values(parameterList["フレーム"]).forEach((parts) => {
+          if (parts["パーツ名"] == event.target.value) {
+            $result[1][elementId] = parts["EN負荷"];
+            $result[2][elementId] = parts["重量"];
           }
         });
-      } else {
-        //フレームなら
-        Object.values(frame)[elementId - 4].forEach((element) => {
-          if (element["name"] == event.target.value) {
-            $result[1][elementId] = element["en"];
-            $result[2][elementId] = element["weight"];
+      } else if (elementId < 11) {
+        //内装部分なら
+        Object.values(parameterList["内装"]).forEach((parts) => {
+          if (parts["パーツ名"] == event.target.value) {
+            $result[1][elementId] = parts["EN負荷"];
+            $result[2][elementId] = parts["重量"];
           }
         });
       }
-      $parameter = parameterFormation($result);
-    }else{
-      alert("まずアセンブルを生成してください")
+      $parameter = displayParameterFormation($result);
+    } else {
+      alert("まずアセンブルを生成してください");
       delete $fixedParts[elementId];
-      console.log($fixedParts)
+      console.log($fixedParts);
     }
   }
 </script>
@@ -107,15 +121,17 @@
             {#each [orderTranslation[order]] as categoryParts}
               {#each categoryParts as parts}
                 {#if $result.length > 0}
-                  {#if parts["name"] == $result[0][orders.indexOf(order)]["name"]}
-                    <option value={parts["name"]} selected
-                      >{parts["name"]}</option
+                  {#if parts["パーツ名"] == $result[0][orders.indexOf(order)]["パーツ名"]}
+                    <option value={parts["パーツ名"]} selected
+                      >{parts["パーツ名"]}</option
                     >
                   {:else}
-                    <option value={parts["name"]}>{parts["name"]}</option>
+                    <option value={parts["パーツ名"]}
+                      >{parts["パーツ名"]}</option
+                    >
                   {/if}
                 {:else}
-                  <option value={parts["name"]}>{parts["name"]}</option>
+                  <option value={parts["パーツ名"]}>{parts["パーツ名"]}</option>
                 {/if}
               {/each}
             {/each}
@@ -158,7 +174,7 @@
   td {
     text-align: center;
   }
-  #parameter{
-    width: calc(100%/3);
+  #parameter {
+    width: calc(100% / 3);
   }
 </style>
