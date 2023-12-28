@@ -1,23 +1,10 @@
 <script>
   import { assemble } from "$lib/assemble.js";
   import { option, fixedParts, result, parameter } from "$lib/store.js";
+  import { parameterFormation } from "$lib/parameterFormation.js";
   function assembleCreate() {
     result.set(assemble($option, $fixedParts));
-    let enSum = $result[1].reduce(function (sum, en) {
-      return sum + en;
-    }, 0);
-    enSum -= $result[1][10];
-    let weightSum = $result[2].reduce(function (sum, weight) {
-      return sum + weight;
-    }, 0);
-    $parameter = {
-        "EN負荷": enSum,
-        "ジェネレータ出力": $result[1][10]*($result[0][5]["outputCorrection"]/100),
-        "総重量": weightSum,
-        "脚部積載重量": $result[0][7]["Loading Limit"],
-        "武器総重量": $result[2][0] + $result[2][1],
-        "腕部積載重量": $result[0][6]["Loading Limit"],
-      };
+    $parameter = parameterFormation($result);
   }
   const optionTranslation = {
     脚部積載超過を許可: "permitExcessLegWeight",
@@ -26,7 +13,9 @@
     武装なしを許可: "armedNonePermit",
   };
   function changeToggleOption(event, elementId) {
-    $option[elementId] = event.srcElement.checked;
+    console.log($option)
+    $option[elementId] = event.target.checked;
+    console.log($option)
   }
 </script>
 
@@ -109,6 +98,7 @@
             on:change={(event) =>
               changeToggleOption(event, optionTranslation[options])}
             class="toggle"
+            bind:checked={$option[optionTranslation[options]]}
           />
         </label>
       </div>
