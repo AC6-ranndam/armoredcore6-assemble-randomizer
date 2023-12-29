@@ -68,11 +68,10 @@ export function assemble(option, fixedParts, weaponFormationedParameter) {
             }
             selectedParts = frameParts[choice];
             partsList.push(selectedParts);
-            console.log(selectedParts)
             enList.push(selectedParts["EN負荷"]);
             weightList.push(selectedParts["重量"]);
-            if ("脚部カテゴリ" in selectedParts) {
-                partsType.push(selectedParts["脚部カテゴリ"]);
+            if ("カテゴリー" in selectedParts) {
+                partsType.push(selectedParts["カテゴリー"]);
             }
         });
         Object.keys(parameterList["内装"]).forEach(function (element) {
