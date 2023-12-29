@@ -76,7 +76,7 @@ export function assemble(option, fixedParts, weaponFormationedParameter) {
             }
         });
         Object.keys(parameterList["内装"]).forEach(function (element) {
-            fixedPartsIndex = Object.keys(parameterList["内装"].indexOf(element));
+            fixedPartsIndex = Object.keys(parameterList["内装"]).indexOf(element);
             let innerParts = [];
             let partsNames = [];
             let choice = 0;

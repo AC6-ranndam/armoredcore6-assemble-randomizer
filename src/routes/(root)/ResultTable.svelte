@@ -11,7 +11,7 @@
   } from "$lib/store.js";
   import { displayParameterFormation } from "$lib/displayParameterFormation.js";
   import { weaponParameterFormation } from "$lib/weaponParameterFormation.js";
-  const type = ["種類", "パーツ", "固定"];
+  const type = ["装備箇所", "パーツ名", "固定", "パーツ種類"];
   $weaponFormationedParameter = weaponParameterFormation(parameterList);
   const orderTranslation = {
     右腕武装: $weaponFormationedParameter[0],
@@ -145,6 +145,15 @@
             class="toggle"
           />
         </td>
+        {#each [orderTranslation[order]] as categoryParts}
+          {#each categoryParts as parts}
+            {#if $result.length > 0}
+              {#if parts["カテゴリー"] !== undefined && parts["パーツ名"] == $result[0][orders.indexOf(order)]["パーツ名"]}
+                <td>{parts["カテゴリー"]}</td>
+              {/if}
+            {/if}
+          {/each}
+        {/each}
       </tr>
     {/each}
   </tbody>
