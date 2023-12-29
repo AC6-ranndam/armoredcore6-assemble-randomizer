@@ -13,7 +13,12 @@
     武装なしを許可: "armedNonePermit",
   };
   function changeToggleOption(event, elementId) {
-    $option[elementId] = event.target.checked;
+    if(($fixedParts[6] !== undefined) && (($fixedParts[6] !== undefined) == $option["permitExcessArmWeight"]) || ($fixedParts[7] !== undefined) && (($fixedParts[7] !== undefined) == $option["permitExcessArmWeight"])){
+      alert("腕部または脚部パーツの固定時に積載超過のオプションを解除しないで下さい")
+      event.target.checked = !event.target.checked;
+    }else{
+      $option[elementId] = event.target.checked;
+    }
   }
 </script>
 
@@ -92,7 +97,7 @@
           <span class="label-text">{options}</span>
           <input
             type="checkbox"
-            id={optionTranslation[options]}
+            data-id={optionTranslation[options]}
             on:change={(event) =>
               changeToggleOption(event, optionTranslation[options])}
             class="toggle"

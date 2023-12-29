@@ -1,6 +1,4 @@
 <script>
-  import frame from "$lib/parts/frame.json";
-  import weapon from "$lib/parts/weapon.json";
   import parameterList from "$lib/parts/parameter.json";
   import {
     option,
@@ -11,7 +9,7 @@
   } from "$lib/store.js";
   import { displayParameterFormation } from "$lib/displayParameterFormation.js";
   import { weaponParameterFormation } from "$lib/weaponParameterFormation.js";
-  const type = ["装備箇所", "パーツ名", "固定", "パーツ種類"];
+  const type = ["装備箇所", "パーツ名", "固定"];
   $weaponFormationedParameter = weaponParameterFormation(parameterList);
   const orderTranslation = {
     右腕武装: $weaponFormationedParameter[0],
@@ -33,23 +31,23 @@
     ["ジェネレータ出力", "脚部積載重量", "腕部積載重量"],
   ];
   function hiddenswitch(event, elementId) {
-    console.log(event, elementId);
     if (event.target.checked) {
       if ([6, 7].includes(elementId)) {
         //脚部か腕部を固定した場合
         $option[Object.keys($option)[[6, 7].indexOf(elementId)]] =
           !$option[Object.keys($option)[[6, 7].indexOf(elementId)]]; //オプション自動指定
-        console.log($option);
       }
       //それ以外かつ固定を有効にしたら
-      document.getElementById(elementId).disabled = !event.target.checked;
-      $fixedParts[elementId] =
-        document.querySelectorAll("select")[elementId].value;
+      document.querySelector(`select[data-id="${elementId}"]`).disabled =
+        !event.target.checked;
+      $fixedParts[elementId] = document.querySelector(
+        `select[data-id="${elementId}"]`
+      ).value;
     } else {
       //そうでなければ
-      document.getElementById(elementId).disabled = !event.target.checked;
+      document.querySelector(`select[data-id="${elementId}"]`).disabled =
+        !event.target.checked;
       delete $fixedParts[elementId];
-      $option;
     }
   }
   function changeFixedParts(event, elementId) {
@@ -64,34 +62,61 @@
           )
         ).forEach((category) => {
           category.forEach((parts) => {
-            if (parts["パーツ名"] == event.target.value) {
+            if (
+              parts["パーツ名"] == event.target.value &&
+              parts["カテゴリー"] !== undefined
+            ) {
+              //カテゴリー名の変更
               $result[1][elementId] = parts["EN負荷"];
               $result[2][elementId] = parts["重量"];
+              document.querySelector(`div[data-id="${elementId}"]`).innerText =
+                parts["カテゴリー"];
+            } else if (
+              parts["パーツ名"] == event.target.value &&
+              parts["カテゴリー"] === undefined
+            ) {
+              //選択なし時のカテゴリー名の除去
+              document.querySelector(`div[data-id="${elementId}"]`).innerText =
+                "";
             }
           });
         });
       } else if (elementId < 8) {
         //フレームなら
-        Object.values(parameterList["フレーム"]).forEach((parts) => {
-          if (parts["パーツ名"] == event.target.value) {
-            $result[1][elementId] = parts["EN負荷"];
-            $result[2][elementId] = parts["重量"];
-          }
+        Object.values(parameterList["フレーム"]).forEach((category) => {
+          category.forEach((parts) => {
+            if (parts["パーツ名"] == event.target.value) {
+              $result[1][elementId] = parts["EN負荷"];
+              $result[2][elementId] = parts["重量"];
+              if (parts["カテゴリー"] !== undefined) {
+                document.querySelector(
+                  `div[data-id="${elementId}"]`
+                ).innerText = parts["カテゴリー"];
+              }
+            }
+          });
         });
       } else if (elementId < 11) {
         //内装部分なら
-        Object.values(parameterList["内装"]).forEach((parts) => {
-          if (parts["パーツ名"] == event.target.value) {
-            $result[1][elementId] = parts["EN負荷"];
-            $result[2][elementId] = parts["重量"];
-          }
+        Object.values(parameterList["内装"]).forEach((category) => {
+          category.forEach((parts) => {
+            if(parts["パーツ名"] == event.target.value && elementId == 10){
+              $parameter["ジェネレータ出力"] = parseInt(parts["EN出力"] * ($result[0][5]["ジェネレータ出力補正"] / 100))
+              $result[2][elementId] = parts["重量"];
+              return;
+            } else if (parts["パーツ名"] == event.target.value && elementId != 10) {
+              $result[1][elementId] = parts["EN負荷"];
+              $result[2][elementId] = parts["重量"];
+            }
+          });
         });
       }
+      if(elementId != 10){
       $parameter = displayParameterFormation($result);
+      }
     } else {
       alert("まずアセンブルを生成してください");
       delete $fixedParts[elementId];
-      console.log($fixedParts);
     }
   }
 </script>
@@ -112,7 +137,7 @@
         </td>
         <td>
           <select
-            id={orders.indexOf(order)}
+            data-id={orders.indexOf(order)}
             class="select select-ghost w-full"
             on:change={(event) =>
               changeFixedParts(event, orders.indexOf(order))}
@@ -136,24 +161,26 @@
               {/each}
             {/each}
           </select>
+          {#each [orderTranslation[order]] as categoryParts}
+            {#each categoryParts as parts}
+              {#if $result.length > 0}
+                {#if parts["カテゴリー"] !== undefined && parts["パーツ名"] == $result[0][orders.indexOf(order)]["パーツ名"]}
+                  <div data-id={orders.indexOf(order)}>
+                    {parts["カテゴリー"]}
+                  </div>
+                {/if}
+              {/if}
+            {/each}
+          {/each}
         </td>
         <td>
           <input
             type="checkbox"
-            id={orders.indexOf(order)}
+            data-id={orders.indexOf(order)}
             on:change={(event) => hiddenswitch(event, orders.indexOf(order))}
             class="toggle"
           />
         </td>
-        {#each [orderTranslation[order]] as categoryParts}
-          {#each categoryParts as parts}
-            {#if $result.length > 0}
-              {#if parts["カテゴリー"] !== undefined && parts["パーツ名"] == $result[0][orders.indexOf(order)]["パーツ名"]}
-                <td>{parts["カテゴリー"]}</td>
-              {/if}
-            {/if}
-          {/each}
-        {/each}
       </tr>
     {/each}
   </tbody>
