@@ -1,7 +1,7 @@
 <script>
-  import { assemble } from "$lib/assemble.js";
+  import { assemble } from "$lib/functions/assemble.js";
   import { option, fixedParts, result, parameter ,weaponFormationedParameter} from "$lib/store.js";
-  import { displayParameterFormation } from "$lib/displayParameterFormation.js";
+  import { displayParameterFormation } from "$lib/functions/displayParameterFormation.js";
   function assembleCreate() {
     result.set(assemble($option, $fixedParts,$weaponFormationedParameter));
     $parameter = displayParameterFormation($result);

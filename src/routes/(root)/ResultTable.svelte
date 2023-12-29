@@ -7,8 +7,8 @@
     parameter,
     weaponFormationedParameter,
   } from "$lib/store.js";
-  import { displayParameterFormation } from "$lib/displayParameterFormation.js";
-  import { weaponParameterFormation } from "$lib/weaponParameterFormation.js";
+  import { displayParameterFormation } from "$lib/functions/displayParameterFormation.js";
+  import { weaponParameterFormation } from "$lib/functions/weaponParameterFormation.js";
   const type = ["装備箇所", "パーツ名", "固定"];
   $weaponFormationedParameter = weaponParameterFormation(parameterList);
   const orderTranslation = {
