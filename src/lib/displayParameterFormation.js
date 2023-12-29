@@ -1,4 +1,4 @@
-export function parameterFormation(result) {
+export function displayParameterFormation(result) {
     let enSum = result[1].reduce(function (sum, en) {
         return sum + en;
     }, 0);

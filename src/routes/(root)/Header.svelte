@@ -1,21 +1,19 @@
 <script>
   import { assemble } from "$lib/assemble.js";
-  import { option, fixedParts, result, parameter } from "$lib/store.js";
-  import { parameterFormation } from "$lib/parameterFormation.js";
+  import { option, fixedParts, result, parameter ,weaponFormationedParameter} from "$lib/store.js";
+  import { displayParameterFormation } from "$lib/displayParameterFormation.js";
   function assembleCreate() {
-    result.set(assemble($option, $fixedParts));
-    $parameter = parameterFormation($result);
+    result.set(assemble($option, $fixedParts,$weaponFormationedParameter));
+    $parameter = displayParameterFormation($result);
   }
   const optionTranslation = {
-    脚部積載超過を許可: "permitExcessLegWeight",
     腕部積載超過を許可: "permitExcessArmWeight",
+    脚部積載超過を許可: "permitExcessLegWeight",
     コア拡張機能なしを許可: "extendedFunctionNonePermit",
     武装なしを許可: "armedNonePermit",
   };
   function changeToggleOption(event, elementId) {
-    console.log($option)
     $option[elementId] = event.target.checked;
-    console.log($option)
   }
 </script>
 
