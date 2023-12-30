@@ -30,17 +30,6 @@
     ["EN負荷", "総重量", "武器総重量"],
     ["ジェネレータ出力", "脚部積載重量", "腕部積載重量"],
   ];
-  let testType = ["A","B","C"]
-  $: if($result.length>0){
-
-  }
-  function test(elementId){
-    console.log(elementId)
-    if($result.length>0){
-      testType = Object.keys($result[0][elementId])
-      partsModal.showModal()
-    }
-  }
   function hiddenswitch(event, elementId) {
     if (event.target.checked) {
       if ([6, 7].includes(elementId)) {
@@ -78,6 +67,7 @@
               parts["カテゴリー"] !== undefined
             ) {
               //カテゴリー名の変更
+              $result[0][elementId] = parts;
               $result[1][elementId] = parts["EN負荷"];
               $result[2][elementId] = parts["重量"];
               document.querySelector(`div[data-id="${elementId}"]`).innerText =
@@ -97,6 +87,7 @@
         Object.values(parameterList["フレーム"]).forEach((category) => {
           category.forEach((parts) => {
             if (parts["パーツ名"] == event.target.value) {
+              $result[0][elementId] = parts;
               $result[1][elementId] = parts["EN負荷"];
               $result[2][elementId] = parts["重量"];
               if (parts["カテゴリー"] !== undefined) {
@@ -115,12 +106,14 @@
               $parameter["ジェネレータ出力"] = parseInt(
                 parts["EN出力"] * ($result[0][5]["ジェネレータ出力補正"] / 100)
               );
+              $result[0][elementId] = parts;
               $result[2][elementId] = parts["重量"];
               return;
             } else if (
               parts["パーツ名"] == event.target.value &&
               elementId != 10
             ) {
+              $result[0][elementId] = parts;
               $result[1][elementId] = parts["EN負荷"];
               $result[2][elementId] = parts["重量"];
             }
@@ -179,39 +172,40 @@
     downLoadLink.click();
   }
 </script>
-{#if $result.length >0}
-{#each $result[0] as parts}
-<dialog id="parts{$result[0].indexOf(parts)}Modal" class="modal">
-  <div class="modal-box">
-    <div class="text-lg font-bold" id="parts-title">パーツパラメータ</div>
-    <div class="overflow-x-auto">
-      <table class="table table-sm">
-        <thead>
-          <tr>
-              <th>パラメータ名</th>
-              <th>数値</th>
-          </tr>
-        </thead>
-        <tbody>
-          {#each Object.keys(parts) as order}
-            <tr>
-              <td>
-                {order}
-              </td>
-              <td>
-                {parts[order]}
-              </td>
-            </tr>
-          {/each}
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
-</dialog>
-{/each}
+
+{#if $result.length > 0}
+  {#each $result[0] as parts}
+    <dialog id="parts{$result[0].indexOf(parts)}Modal" class="modal">
+      <div class="modal-box">
+        <div class="text-lg font-bold" id="parts-title">パーツパラメータ</div>
+        <div class="overflow-x-auto">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>パラメータ名</th>
+                <th>数値</th>
+              </tr>
+            </thead>
+            <tbody>
+              {#each Object.keys(parts) as order}
+                <tr>
+                  <td>
+                    {order}
+                  </td>
+                  <td>
+                    {parts[order]}
+                  </td>
+                </tr>
+              {/each}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+  {/each}
 {/if}
 <table class="table table-sm">
   <thead>
@@ -331,7 +325,8 @@
 
 <style>
   th,
-  td,#parts-title {
+  td,
+  #parts-title {
     text-align: center;
   }
   #parameter {
