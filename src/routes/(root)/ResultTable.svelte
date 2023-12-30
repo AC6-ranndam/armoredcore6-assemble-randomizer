@@ -100,24 +100,75 @@
         //内装部分なら
         Object.values(parameterList["内装"]).forEach((category) => {
           category.forEach((parts) => {
-            if(parts["パーツ名"] == event.target.value && elementId == 10){
-              $parameter["ジェネレータ出力"] = parseInt(parts["EN出力"] * ($result[0][5]["ジェネレータ出力補正"] / 100))
+            if (parts["パーツ名"] == event.target.value && elementId == 10) {
+              $parameter["ジェネレータ出力"] = parseInt(
+                parts["EN出力"] * ($result[0][5]["ジェネレータ出力補正"] / 100)
+              );
               $result[2][elementId] = parts["重量"];
               return;
-            } else if (parts["パーツ名"] == event.target.value && elementId != 10) {
+            } else if (
+              parts["パーツ名"] == event.target.value &&
+              elementId != 10
+            ) {
               $result[1][elementId] = parts["EN負荷"];
               $result[2][elementId] = parts["重量"];
             }
           });
         });
       }
-      if(elementId != 10){
-      $parameter = displayParameterFormation($result);
+      if (elementId != 10) {
+        $parameter = displayParameterFormation($result);
       }
     } else {
       alert("まずアセンブルを生成してください");
       delete $fixedParts[elementId];
     }
+  }
+  function assembleCopy() {
+    let assembleText = "";
+    for (let i = 0; i < orders.length; i++) {
+      assembleText += orders[i].toString();
+      assembleText += ":";
+      assembleText += $result[0].map((item) => item["パーツ名"])[i];
+      assembleText += "\n";
+    }
+    if (!navigator.clipboard) {
+      alert("このブラウザは対応していません");
+      return;
+    }
+
+    navigator.clipboard.writeText(assembleText).then(
+      () => {
+        alert("アセンブルをクリップボードにコピーしました");
+      },
+      () => {
+        alert("アセンブルのコピーに失敗しました。");
+      }
+    );
+    console.log(assembleText);
+    console.log($result[0].map((item) => item["パーツ名"]));
+    console.log(orders);
+  }
+  function assembleDownload() {
+    let assembleText = "";
+    for (let i = 0; i < orders.length; i++) {
+      assembleText += orders[i].toString();
+      assembleText += ":";
+      assembleText += $result[0].map((item) => item["パーツ名"])[i];
+      assembleText += "\n";
+    }
+    assembleText = assembleText.replace(/\\n/g, "");
+    let downLoadLink = document.createElement("a");
+    downLoadLink.download = "assemble.txt";
+    downLoadLink.href = URL.createObjectURL(
+      new Blob([assembleText], { type: "text.plain" })
+    );
+    downLoadLink.dataset.downloadurl = [
+      "text/plain",
+      downLoadLink.download,
+      downLoadLink.href,
+    ].join(":");
+    downLoadLink.click();
   }
 </script>
 
@@ -185,6 +236,18 @@
     {/each}
   </tbody>
 </table>
+<div class="copy-button">
+  <button
+    class="btn btn-success text-xl font-medium text-white"
+    on:click={assembleCopy}>アセンブルをコピー</button
+  >
+</div>
+<div class="download-button">
+  <button
+    class="btn btn-success text-xl font-medium text-white"
+    on:click={assembleDownload}>アセンブルをファイルとしてダウンロード</button
+  >
+</div>
 {#each parameterType as type}
   <table class="table table-sm">
     <thead>
@@ -212,5 +275,9 @@
   }
   #parameter {
     width: calc(100% / 3);
+  }
+  .copy-button ,.download-button{
+    display: flex;
+    justify-content: center;
   }
 </style>
