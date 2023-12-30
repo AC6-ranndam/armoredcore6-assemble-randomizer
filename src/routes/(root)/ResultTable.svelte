@@ -145,9 +145,6 @@
         alert("アセンブルのコピーに失敗しました。");
       }
     );
-    console.log(assembleText);
-    console.log($result[0].map((item) => item["パーツ名"]));
-    console.log(orders);
   }
   function assembleDownload() {
     let assembleText = "";
@@ -276,7 +273,8 @@
   #parameter {
     width: calc(100% / 3);
   }
-  .copy-button ,.download-button{
+  .copy-button,
+  .download-button {
     display: flex;
     justify-content: center;
   }
