@@ -9,7 +9,7 @@
   } from "$lib/store.js";
   import { displayParameterFormation } from "$lib/functions/displayParameterFormation.js";
   import { weaponParameterFormation } from "$lib/functions/weaponParameterFormation.js";
-  const type = ["装備箇所", "パーツ名", "固定"];
+  const type = ["装備箇所", "パーツ名", "固定", "詳細表示"];
   $weaponFormationedParameter = weaponParameterFormation(parameterList);
   const orderTranslation = {
     右腕武装: $weaponFormationedParameter[0],
@@ -67,6 +67,7 @@
               parts["カテゴリー"] !== undefined
             ) {
               //カテゴリー名の変更
+              $result[0][elementId] = parts;
               $result[1][elementId] = parts["EN負荷"];
               $result[2][elementId] = parts["重量"];
               document.querySelector(`div[data-id="${elementId}"]`).innerText =
@@ -86,6 +87,7 @@
         Object.values(parameterList["フレーム"]).forEach((category) => {
           category.forEach((parts) => {
             if (parts["パーツ名"] == event.target.value) {
+              $result[0][elementId] = parts;
               $result[1][elementId] = parts["EN負荷"];
               $result[2][elementId] = parts["重量"];
               if (parts["カテゴリー"] !== undefined) {
@@ -104,12 +106,14 @@
               $parameter["ジェネレータ出力"] = parseInt(
                 parts["EN出力"] * ($result[0][5]["ジェネレータ出力補正"] / 100)
               );
+              $result[0][elementId] = parts;
               $result[2][elementId] = parts["重量"];
               return;
             } else if (
               parts["パーツ名"] == event.target.value &&
               elementId != 10
             ) {
+              $result[0][elementId] = parts;
               $result[1][elementId] = parts["EN負荷"];
               $result[2][elementId] = parts["重量"];
             }
@@ -169,6 +173,40 @@
   }
 </script>
 
+{#if $result.length > 0}
+  {#each $result[0] as parts}
+    <dialog id="parts{$result[0].indexOf(parts)}Modal" class="modal">
+      <div class="modal-box">
+        <div class="text-lg font-bold" id="parts-title">パーツパラメータ</div>
+        <div class="overflow-x-auto">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>パラメータ名</th>
+                <th>数値</th>
+              </tr>
+            </thead>
+            <tbody>
+              {#each Object.keys(parts) as order}
+                <tr>
+                  <td>
+                    {order}
+                  </td>
+                  <td>
+                    {parts[order]}
+                  </td>
+                </tr>
+              {/each}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+  {/each}
+{/if}
 <table class="table table-sm">
   <thead>
     <tr>
@@ -229,6 +267,26 @@
             class="toggle"
           />
         </td>
+        <td>
+          <button
+            class="btn btn-square btn-ghost"
+            data-id={orders.indexOf(order)}
+            onclick="parts{orders.indexOf(order)}Modal.showModal()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="inline-block w-5 h-5 stroke-current"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+              ></path></svg
+            >
+          </button>
+        </td>
       </tr>
     {/each}
   </tbody>
@@ -267,7 +325,8 @@
 
 <style>
   th,
-  td {
+  td,
+  #parts-title {
     text-align: center;
   }
   #parameter {
