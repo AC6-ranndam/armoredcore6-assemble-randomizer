@@ -3,7 +3,6 @@ export function assemble(option, fixedParts, weaponFormationedParameter) {
     let enList = [];
     let weightList = [];
     let partsList = [];
-    let partsType = [];
     let en = 0;
     let weight = 0;
     const tankParts = parameterList["フレーム"]["脚部"].filter(function (element) {
@@ -18,7 +17,6 @@ export function assemble(option, fixedParts, weaponFormationedParameter) {
         Object.keys(weaponTypeList).forEach(function (element) {//左腕→右腕→左肩→右肩
             fixedPartsIndex = Object.keys(weaponTypeList).indexOf(element);
             let weaponParts = [];
-            let categoryChoice = 0;
             let partsChoice = 0;
             let partsNames = [];
             let selectedParts;
@@ -51,7 +49,6 @@ export function assemble(option, fixedParts, weaponFormationedParameter) {
             partsList.push(selectedParts);
             enList.push(selectedParts["EN負荷"]);
             weightList.push(selectedParts["重量"]);
-            partsType.push(selectedParts["カテゴリー"]);
         });
         Object.keys(parameterList["フレーム"]).forEach(function (element) {
             fixedPartsIndex = Object.keys(parameterList["フレーム"]).indexOf(element);
@@ -70,9 +67,6 @@ export function assemble(option, fixedParts, weaponFormationedParameter) {
             partsList.push(selectedParts);
             enList.push(selectedParts["EN負荷"]);
             weightList.push(selectedParts["重量"]);
-            if ("カテゴリー" in selectedParts) {
-                partsType.push(selectedParts["カテゴリー"]);
-            }
         });
         Object.keys(parameterList["内装"]).forEach(function (element) {
             fixedPartsIndex = Object.keys(parameterList["内装"]).indexOf(element);
@@ -136,8 +130,7 @@ export function assemble(option, fixedParts, weaponFormationedParameter) {
             partsList = [];
             en = 0;
             weight = 0;
-            partsType = [];
         }
     }
-    return [partsList, enList, weightList, partsType, armLoadingExcess, legLoadingExcess];
+    return [partsList, enList, weightList];
 }

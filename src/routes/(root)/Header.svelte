@@ -1,9 +1,15 @@
 <script>
   import { assemble } from "$lib/functions/assemble.js";
-  import { option, fixedParts, result, parameter ,weaponFormationedParameter} from "$lib/store.js";
+  import {
+    option,
+    fixedParts,
+    result,
+    parameter,
+    weaponFormationedParameter,
+  } from "$lib/store.js";
   import { displayParameterFormation } from "$lib/functions/displayParameterFormation.js";
   function assembleCreate() {
-    result.set(assemble($option, $fixedParts,$weaponFormationedParameter));
+    result.set(assemble($option, $fixedParts, $weaponFormationedParameter));
     $parameter = displayParameterFormation($result);
   }
   const optionTranslation = {
@@ -13,10 +19,17 @@
     武装なしを許可: "armedNonePermit",
   };
   function changeToggleOption(event, elementId) {
-    if(($fixedParts[6] !== undefined) && (($fixedParts[6] !== undefined) == $option["permitExcessArmWeight"]) || ($fixedParts[7] !== undefined) && (($fixedParts[7] !== undefined) == $option["permitExcessArmWeight"])){
-      alert("腕部または脚部パーツの固定時に積載超過のオプションを解除しないで下さい")
+    if (
+      ($fixedParts[6] !== undefined &&
+        ($fixedParts[6] !== undefined) == $option["permitExcessArmWeight"]) ||
+      ($fixedParts[7] !== undefined &&
+        ($fixedParts[7] !== undefined) == $option["permitExcessArmWeight"])
+    ) {
+      alert(
+        "腕部または脚部パーツの固定時に積載超過のオプションを解除しないで下さい"
+      );
       event.target.checked = !event.target.checked;
-    }else{
+    } else {
       $option[elementId] = event.target.checked;
     }
   }
@@ -118,9 +131,7 @@
     </label>
     <div class="modal-action">
       <form method="dialog">
-        <div class="btn-container">
           <button class="btn">設定完了</button>
-        </div>
       </form>
     </div>
   </div>

@@ -8,16 +8,17 @@
 積載超過や武装なしなどを許可したい場合は、画面右上の…ボタンを押してオプション画面を開き、**設定完了**を押してオプションの変更を確定させてから**アセンブル生成**ボタンを押すと、オプションが適用されたアセンブルが出力されます。
 
 ## 動作環境
-+ Node.js: v20.9.0
-+ pnpm: v8.10.2(npm:v10.1.0での動作確認済み)
-+ svelte: v4.2.5
-+ vite: v4.5.0
-+ svelteKit: v2.1.1
++ Node.js: v20.10.0
++ pnpm: v8.13.1(npm:v10.2.5での動作確認済み)
++ svelte: v4.2.8
++ vite: v4.5.1
++ svelteKit: v1.30.3
 + svelte/adapter-auto: v2.1.1
 + autoprefixer: v10.4.16
-+ postcss:  v8.4.31
-+ tailwindcss: v3.3.5
++ postcss:  v8.4.32
++ tailwindcss: v3.4.0
 + daisyui: v3.9.4
++ volta:v1.1.1
 ## 構築方法
 Windows、MacOS及びDebian系Linuxディストリビューションを対象に説明します。
 
