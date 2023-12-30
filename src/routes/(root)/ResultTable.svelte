@@ -9,7 +9,7 @@
   } from "$lib/store.js";
   import { displayParameterFormation } from "$lib/functions/displayParameterFormation.js";
   import { weaponParameterFormation } from "$lib/functions/weaponParameterFormation.js";
-  const type = ["装備箇所", "パーツ名", "固定"];
+  const type = ["装備箇所", "パーツ名", "固定", "詳細表示"];
   $weaponFormationedParameter = weaponParameterFormation(parameterList);
   const orderTranslation = {
     右腕武装: $weaponFormationedParameter[0],
@@ -30,6 +30,17 @@
     ["EN負荷", "総重量", "武器総重量"],
     ["ジェネレータ出力", "脚部積載重量", "腕部積載重量"],
   ];
+  let testType = ["A","B","C"]
+  $: if($result.length>0){
+
+  }
+  function test(elementId){
+    console.log(elementId)
+    if($result.length>0){
+      testType = Object.keys($result[0][elementId])
+      partsModal.showModal()
+    }
+  }
   function hiddenswitch(event, elementId) {
     if (event.target.checked) {
       if ([6, 7].includes(elementId)) {
@@ -168,7 +179,40 @@
     downLoadLink.click();
   }
 </script>
-
+{#if $result.length >0}
+{#each $result[0] as parts}
+<dialog id="parts{$result[0].indexOf(parts)}Modal" class="modal">
+  <div class="modal-box">
+    <div class="text-lg font-bold" id="parts-title">パーツパラメータ</div>
+    <div class="overflow-x-auto">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+              <th>パラメータ名</th>
+              <th>数値</th>
+          </tr>
+        </thead>
+        <tbody>
+          {#each Object.keys(parts) as order}
+            <tr>
+              <td>
+                {order}
+              </td>
+              <td>
+                {parts[order]}
+              </td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+{/each}
+{/if}
 <table class="table table-sm">
   <thead>
     <tr>
@@ -229,6 +273,26 @@
             class="toggle"
           />
         </td>
+        <td>
+          <button
+            class="btn btn-square btn-ghost"
+            data-id={orders.indexOf(order)}
+            onclick="parts{orders.indexOf(order)}Modal.showModal()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="inline-block w-5 h-5 stroke-current"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+              ></path></svg
+            >
+          </button>
+        </td>
       </tr>
     {/each}
   </tbody>
@@ -267,7 +331,7 @@
 
 <style>
   th,
-  td {
+  td,#parts-title {
     text-align: center;
   }
   #parameter {
