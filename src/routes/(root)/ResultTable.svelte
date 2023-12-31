@@ -1,5 +1,5 @@
 <script>
-  import parameterList from "$lib/parts/parameter.json";
+  import parameterList from "$lib/database/parts-parameter.json";
   import {
     option,
     fixedParts,
