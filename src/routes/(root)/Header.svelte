@@ -65,6 +65,7 @@
         <ul class="menu min-h-full w-80 bg-base-200 p-4 text-base-content">
           <!-- Sidebar content here -->
           <li><a href="/">ホーム</a></li>
+          <li><a href="/change-log">更新履歴</a></li>
           <li>
             <a href="https://forms.gle/cJcMZ3sy6g31PYt88">お問い合わせ</a>
           </li>
