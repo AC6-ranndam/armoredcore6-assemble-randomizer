@@ -1,4 +1,4 @@
-import parameterList from "$lib/parts/parameter.json";
+import parameterList from "$lib/database/parts-parameter.json";
 export function assemble(option, fixedParts, weaponFormationedParameter) {
     let enList = [];
     let weightList = [];
