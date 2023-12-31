@@ -1,6 +1,5 @@
 <script>
   import changeLog from "$lib/database/changeLog.json";
-  console.log(Object.values(changeLog["更新履歴"]))
   let changeList = Object.values(changeLog["更新履歴"])
   const typeTranslation = {
     バグ修正:"error",
