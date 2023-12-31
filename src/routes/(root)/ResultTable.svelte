@@ -202,7 +202,7 @@
         </div>
       </div>
       <form method="dialog" class="modal-backdrop">
-        <button>close</button>
+        <button>閉じる</button>
       </form>
     </dialog>
   {/each}

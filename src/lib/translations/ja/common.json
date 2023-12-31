@@ -1,0 +1,13 @@
+{
+	"headerTitle": "アーマードコア6　賽投げシステム",
+    "headerDrawerHome":"ホーム",
+    "headerChangeLog":"更新履歴",
+    "headerInquiry":"お問い合わせ",
+    "headerGithub":"ソースコード・ヘルプ",
+    "assembleGenerator":"アセンブル生成",
+    "assembleOption":"アセンブルオプション",
+    "generalControls":"一般設定",
+    "percentageOfHangarWeapons":"ハンガー武器の割合",
+    "setupComplete":"設定完了",
+    "languageSwitching":"言語切り替え"
+}

@@ -1,0 +1,14 @@
+{
+	"headerTitle": "ArmoredCore6 Assemble Randomizer",
+    "headerDrawerHome":"home",
+    "headerChangeLog":"changelog",
+    "headerInquiry":"inquiry",
+    "headerGithub":"Source Code&Help",
+    "headerGenerator":"Generate Assemble",
+    "assembleOption":"Assemble Option",
+    "generalControls":"General Controls",
+    "percentageOfHangarWeapons":"Percentage of hangar weapons",
+    "setupComplete":"Setup complete",
+    "languageSwitching":"Language Switching"
+
+}
