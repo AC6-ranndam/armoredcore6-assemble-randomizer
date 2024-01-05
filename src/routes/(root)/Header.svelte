@@ -5,12 +5,16 @@
     fixedParts,
     result,
     parameter,
-    weaponFormationedParameter,
+    limitExcessParameter,
+    weaponFormationedParameter
   } from "$lib/store.js";
   import { displayParameterFormation } from "$lib/functions/displayParameterFormation.js";
+  import { limitExcessParameterFormation } from "$lib/functions/limitExcessParameterFormation.js";
   function assembleCreate() {
     result.set(assemble($option, $fixedParts, $weaponFormationedParameter));
     $parameter = displayParameterFormation($result);
+    $limitExcessParameter = limitExcessParameterFormation($parameter);
+    console.log($parameter,$limitExcessParameter)
   }
   const optionTranslation = {
     腕部積載超過を許可: "permitExcessArmWeight",
