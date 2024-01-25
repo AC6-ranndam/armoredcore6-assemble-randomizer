@@ -6,6 +6,7 @@
     result,
     parameter,
     weaponFormationedParameter,
+    limitExcessParameter
   } from "$lib/store.js";
   import { displayParameterFormation } from "$lib/functions/displayParameterFormation.js";
   import { weaponParameterFormation } from "$lib/functions/weaponParameterFormation.js";
@@ -315,7 +316,7 @@
 
     <tbody>
       {#each type as column}
-        <td id="parameter">
+        <td id="parameter" class:bg-error={parameterType.indexOf(type) != 1 && $result.length > 0 && $limitExcessParameter[type.indexOf(column)] == true}>
           {$parameter[column] != undefined ? $parameter[column] : "0"}
         </td>
       {/each}
