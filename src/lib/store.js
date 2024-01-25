@@ -10,4 +10,5 @@ export let option = writable({
 export let fixedParts = writable({});
 export let result = writable([]);
 export let parameter = writable([]);
+export let limitExcessParameter = writable([]);
 export let weaponFormationedParameter = writable([]);
