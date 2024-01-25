@@ -1,5 +1,5 @@
 <script>
-  import { assemble } from "$lib/functions/assemble.js";
+  import { assemble } from "$lib/functions/assemble.js";//アセンブル作成用の関数を読み込み
   import {
     option,
     fixedParts,
@@ -7,34 +7,34 @@
     parameter,
     limitExcessParameter,
     weaponFormationedParameter
-  } from "$lib/store.js";
-  import { displayParameterFormation } from "$lib/functions/displayParameterFormation.js";
-  import { limitExcessParameterFormation } from "$lib/functions/limitExcessParameterFormation.js";
-  function assembleCreate() {
-    result.set(assemble($option, $fixedParts, $weaponFormationedParameter));
-    $parameter = displayParameterFormation($result);
-    $limitExcessParameter = limitExcessParameterFormation($parameter);
-    console.log($parameter,$limitExcessParameter)
+  } from "$lib/store.js";//共有する変数を読み込み
+  import { displayParameterFormation } from "$lib/functions/displayParameterFormation.js";//表に表示するデータを成型する関数を読み込み
+  import { limitExcessParameterFormation } from "$lib/functions/limitExcessParameterFormation.js";//積載超過を判定する関数を読み込み
+  function assembleCreate() {//アセンブル作成のための関数
+    result.set(assemble($option, $fixedParts, $weaponFormationedParameter));//結果を記録する変数に作成したアセンブルを代入
+    $parameter = displayParameterFormation($result);//成形したパラメータを代入
+    $limitExcessParameter = limitExcessParameterFormation($parameter);//積載超過したかどうかの判定を代入
   }
-  const optionTranslation = {
+  const optionTranslation = {//オプションと変数の対応のためのオブジェクト
     腕部積載超過を許可: "permitExcessArmWeight",
     脚部積載超過を許可: "permitExcessLegWeight",
     コア拡張機能なしを許可: "extendedFunctionNonePermit",
     武装なしを許可: "armedNonePermit",
   };
-  function changeToggleOption(event, elementId) {
+  function changeToggleOption(event, elementId) {//トグルを切り替えた際にオプションを切り替え
+    console.log($fixedParts[6])
     if (
-      ($fixedParts[6] !== undefined &&
+      ($fixedParts[6] !== undefined &&//もし腕パーツが固定されており、その際にオプションがオンになっていたら
         ($fixedParts[6] !== undefined) == $option["permitExcessArmWeight"]) ||
-      ($fixedParts[7] !== undefined &&
+      ($fixedParts[7] !== undefined &&//またはもし脚部パーツが固定されており、その際にオプションがオンになっていたら
         ($fixedParts[7] !== undefined) == $option["permitExcessArmWeight"])
     ) {
       alert(
         "腕部または脚部パーツの固定時に積載超過のオプションを解除しないで下さい"
       );
-      event.target.checked = !event.target.checked;
+      event.target.checked = !event.target.checked;//トグルの切り替えを元に戻す
     } else {
-      $option[elementId] = event.target.checked;
+      $option[elementId] = event.target.checked;//積載超過のオプションを切り替える
     }
   }
 </script>
@@ -109,7 +109,7 @@
 <dialog id="optionModal" class="modal">
   <div class="modal-box">
     <div class="text-lg font-bold" id="option-title">アセンブルオプション</div>
-    {#each Object.keys(optionTranslation) as options}
+    {#each Object.keys(optionTranslation) as options}<!--アセンブルオプションをsvelteの独自記法で描画-->
       <div class="form-control">
         <label class="label cursor-pointer">
           <span class="label-text">{options}</span>
