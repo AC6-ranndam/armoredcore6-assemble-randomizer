@@ -1,5 +1,5 @@
 <script>
-  import parameterList from "$lib/database/parts-parameter.json";
+  import parameterList from "$lib/database/parts-parameter.json";//パラメータの一覧を読み込み
   import {
     option,
     fixedParts,
@@ -7,12 +7,12 @@
     parameter,
     weaponFormationedParameter,
     limitExcessParameter
-  } from "$lib/store.js";
-  import { displayParameterFormation } from "$lib/functions/displayParameterFormation.js";
-  import { weaponParameterFormation } from "$lib/functions/weaponParameterFormation.js";
-  const type = ["装備箇所", "パーツ名", "固定", "詳細表示"];
-  $weaponFormationedParameter = weaponParameterFormation(parameterList);
-  const orderTranslation = {
+  } from "$lib/store.js";//共有する変数を読み込み
+  import { displayParameterFormation } from "$lib/functions/displayParameterFormation.js";//表に表示するデータを成型する関数を読み込み
+  import { weaponParameterFormation } from "$lib/functions/weaponParameterFormation.js";//パラメータを必要に応じて変更するための関数を読み込み
+  const type = ["装備箇所", "パーツ名", "固定", "詳細表示"];//表の項目名のリスト
+  $weaponFormationedParameter = weaponParameterFormation(parameterList);//変更済みのパラメータを代入
+  const orderTranslation = {//パーツ名とパラメータの対応
     右腕武装: $weaponFormationedParameter[0],
     左腕武装: $weaponFormationedParameter[1],
     右肩武装: $weaponFormationedParameter[2],
@@ -26,12 +26,12 @@
     ジェネレータ: parameterList["内装"]["ジェネレータ"],
     拡張機能: parameterList["拡張機能"],
   };
-  const orders = Object.keys(orderTranslation);
-  const parameterType = [
+  const orders = Object.keys(orderTranslation);//右腕武装、頭部などの対応の左側のリスト
+  const parameterType = [//表に表示する項目名のリスト
     ["EN負荷", "総重量", "武器総重量"],
     ["ジェネレータ出力", "脚部積載重量", "腕部積載重量"],
   ];
-  function hiddenswitch(event, elementId) {
+  function hiddenswitch(event, elementId) {//固定の切り替え
     if (event.target.checked) {
       if ([6, 7].includes(elementId)) {
         //脚部か腕部を固定した場合
@@ -40,19 +40,19 @@
       }
       //それ以外かつ固定を有効にしたら
       document.querySelector(`select[data-id="${elementId}"]`).disabled =
-        !event.target.checked;
+        !event.target.checked;//パーツを変更できるように変更
       $fixedParts[elementId] = document.querySelector(
         `select[data-id="${elementId}"]`
-      ).value;
+      ).value;//パーツ名を固定済みパーツのリストに追加
     } else {
       //そうでなければ
       document.querySelector(`select[data-id="${elementId}"]`).disabled =
-        !event.target.checked;
-      delete $fixedParts[elementId];
+        !event.target.checked;//パーツを固定できないように変更
+      delete $fixedParts[elementId];//該当パーツを削除
     }
   }
-  function changeFixedParts(event, elementId) {
-    $fixedParts[elementId] = event.target.value;
+  function changeFixedParts(event, elementId) {//パーツを変更した際に動く関数
+    $fixedParts[elementId] = event.target.value;//変更したパーツのリスト内での順序を代入
     if ($result.length > 0) {
       if (elementId < 4) {
         //武器なら
@@ -60,12 +60,12 @@
           Object.assign(
             Object.values(parameterList["武器"]).flat()[0],
             Object.values(parameterList["武器"]).flat()[1]
-          )
+          )//パラメータ内の武器のリスト
         ).forEach((category) => {
           category.forEach((parts) => {
             if (
               parts["パーツ名"] == event.target.value &&
-              parts["カテゴリー"] !== undefined
+              parts["カテゴリー"] !== undefined//もしカテゴリーが存在し、パーツ名が選択されたものと同じなら
             ) {
               //カテゴリー名の変更
               $result[0][elementId] = parts;
@@ -74,7 +74,7 @@
               document.querySelector(`div[data-id="${elementId}"]`).innerText =
                 parts["カテゴリー"];
             } else if (
-              parts["パーツ名"] == event.target.value &&
+              parts["パーツ名"] == event.target.value &&//パーツ名は存在するがカテゴリーが存在しない場合
               parts["カテゴリー"] === undefined
             ) {
               //選択なし時のカテゴリー名の除去
@@ -88,7 +88,7 @@
         Object.values(parameterList["フレーム"]).forEach((category) => {
           category.forEach((parts) => {
             if (parts["パーツ名"] == event.target.value) {
-              $result[0][elementId] = parts;
+              $result[0][elementId] = parts;//パラメータを追加
               $result[1][elementId] = parts["EN負荷"];
               $result[2][elementId] = parts["重量"];
               if (parts["カテゴリー"] !== undefined) {
@@ -121,7 +121,7 @@
           });
         });
       }
-      if (elementId != 10) {
+      if (elementId != 10) {//ジェネレータ以外なら
         $parameter = displayParameterFormation($result);
       }
     } else {
@@ -129,7 +129,7 @@
       delete $fixedParts[elementId];
     }
   }
-  function assembleCopy() {
+  function assembleCopy() {//アセンブルのクリップボードへのコピー
     let assembleText = "";
     for (let i = 0; i < orders.length; i++) {
       assembleText += orders[i].toString();
@@ -151,7 +151,7 @@
       }
     );
   }
-  function assembleDownload() {
+  function assembleDownload() {//アセンブルをテキストファイルとしてダウンロード
     let assembleText = "";
     for (let i = 0; i < orders.length; i++) {
       assembleText += orders[i].toString();
@@ -174,8 +174,8 @@
   }
 </script>
 
-{#if $result.length > 0}
-  {#each $result[0] as parts}
+{#if $result.length > 0}<!--もしアセンブルを一度でも行っていれば-->
+  {#each $result[0] as parts}<!--パーツのリスト-->
     <dialog id="parts{$result[0].indexOf(parts)}Modal" class="modal">
       <div class="modal-box">
         <div class="text-lg font-bold" id="parts-title">パーツパラメータ</div>
